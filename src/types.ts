@@ -27,6 +27,7 @@ export interface Exam {
   duration: number; // in minutes
   questions: Question[];
   group?: string;
+  isDefault?: boolean;
 }
 
 export type ExamMode = "Standard" | "Practice" | "Hint";

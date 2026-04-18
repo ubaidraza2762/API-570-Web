@@ -1,6 +1,6 @@
 import React from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
-import { CheckCircle2, XCircle, Info, ChevronDown } from "lucide-react";
+import { CheckCircle2, XCircle, Info, ChevronDown, Lightbulb } from "lucide-react";
 import { Exam, ExamAttempt } from "../types";
 import { cn } from "../lib/utils";
 
@@ -52,7 +52,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
   }
 
   const chartData = [
-    { name: "Correct", value: correctCount, color: "#10B981" },
+    { name: "Correct", value: correctCount, color: "#3B82F6" },
     { name: "Incorrect", value: incorrectCount, color: "#EF4444" },
     { name: "Skipped", value: unattemptedCount, color: "#94A3B8" }
   ];
@@ -66,108 +66,96 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
   };
 
   return (
-    <div className="space-y-8 sm:space-y-12 py-6 sm:py-10">
-      <header className="text-center space-y-4">
-        <h1 className="text-3xl sm:text-5xl font-black text-api-navy tracking-tighter mx-auto max-w-2xl px-2">
-          {exam?.title || "Exam Concluded"}
-        </h1>
-        <div className="flex items-center justify-center gap-4 text-[10px] sm:text-xs font-black text-gray-400 uppercase tracking-widest bg-gray-100/50 w-fit mx-auto px-4 py-1.5 rounded-full">
-          <span>Session: {lastResult.date}</span>
+    <div className="space-y-10 py-10 pb-20">
+      <div className="section-label">Examination Summary</div>
+      
+      <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 bg-bg-panel border border-border p-8 sm:p-12 rounded-3xl relative overflow-hidden group shadow-sm">
+        <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none group-hover:scale-105 transition-transform duration-1000">
+           {isPassed ? <CheckCircle2 size={300} className="text-accent" /> : <XCircle size={300} className="text-red-500" />}
+        </div>
+        
+        <div className="relative z-10 space-y-4 flex-1">
+          <div className="flex flex-wrap items-center gap-3">
+             <div className={cn("px-4 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider border shadow-sm", 
+               isPassed ? "bg-green-500/10 text-green-600 border-green-200" : "bg-red-500/10 text-red-600 border-red-200")}>
+               {isPassed ? "COMPLETED" : "REVIEW REQUIRED"}
+             </div>
+             <span className="text-text-secondary text-xs font-medium">• {lastResult.date}</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-bold text-text-primary tracking-tight font-display max-w-2xl leading-tight">
+            {exam?.title || "Exam Results"}
+          </h1>
+        </div>
+
+        <div className="relative z-10 md:text-right">
+          <div className={cn("text-7xl sm:text-8xl font-black tracking-tighter leading-none", isPassed ? "text-text-primary" : "text-red-600")}>
+            {lastResult.score}<span className="text-2xl font-bold ml-1 opacity-40">%</span>
+          </div>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-text-secondary/60 mt-3">Final Percentage</p>
         </div>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-stretch">
-        <section className="bg-white p-8 sm:p-12 rounded-[2.5rem] shadow-2xl shadow-blue-900/5 flex flex-col items-center border border-white relative overflow-hidden group">
-          <div className="absolute -top-20 -right-20 w-64 h-64 bg-api-gold/5 rounded-full blur-3xl group-hover:bg-api-gold/10 transition-colors" />
-          <div className="h-64 sm:h-80 w-full relative z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2 bg-bg-panel border border-border rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center gap-12 group shadow-sm">
+          <div className="h-56 w-56 shrink-0 relative">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie 
                   data={chartData} 
                   cx="50%" 
                   cy="50%" 
-                  innerRadius={85} 
-                  outerRadius={115} 
+                  innerRadius={70} 
+                  outerRadius={90} 
                   paddingAngle={8} 
                   dataKey="value" 
                   stroke="none"
                   animationDuration={1500}
                 >
-                  {chartData.map((entry, index) => (<Cell key={`cell-${index}`} fill={entry.color} className="drop-shadow-sm" />))}
+                  {chartData.map((entry, index) => (<Cell key={`cell-${index}`} fill={entry.color} />))}
                 </Pie>
-                <Tooltip />
+                <Tooltip 
+                  contentStyle={{ backgroundColor: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: '12px', fontSize: '11px', fontWeight: 'bold' }}
+                />
               </PieChart>
             </ResponsiveContainer>
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <div className={cn("text-6xl sm:text-8xl font-[900] italic tracking-tighter", isPassed ? "text-api-navy" : "text-red-500")}>
-                {lastResult.score}<span className="text-2xl sm:text-4xl font-black not-italic ml-1">%</span>
-              </div>
-              <div className="text-[10px] font-black text-gray-300 uppercase tracking-[0.3em] mt-2">Accuracy</div>
+              <div className="text-3xl font-black text-text-primary tracking-tighter">{lastResult.total}</div>
+              <div className="text-[9px] font-bold text-text-secondary uppercase tracking-widest">Questions</div>
             </div>
           </div>
-          <div className="mt-12 text-center space-y-4 w-full relative z-10">
-            <div className={cn(
-              "py-6 px-12 rounded-[2rem] font-black text-2xl uppercase tracking-widest shadow-2xl transition-all scale-100 hover:scale-[1.05] active:scale-95 inline-block", 
-              isPassed ? "bg-api-navy text-white shadow-blue-900/20" : "bg-red-500 text-white shadow-red-900/20"
-            )}>
-              {isPassed ? "CERTIFIED" : "DEFICIENT"}
-            </div>
-          </div>
-        </section>
 
-        <section className="flex flex-col gap-6">
-          <div className="bg-white p-10 sm:p-14 rounded-[2.5rem] shadow-2xl shadow-blue-900/5 flex-grow h-full flex flex-col justify-center border border-white relative overflow-hidden group">
-             <div className="absolute top-0 right-0 p-12 opacity-[0.03] -rotate-12 transition-transform group-hover:rotate-0 group-hover:scale-110 duration-700 pointer-events-none">
-                 {isPassed ? <div className="text-[14rem] font-black text-api-gold">✓</div> : <div className="text-[14rem] font-black text-red-600">✗</div>}
-             </div>
-             <h3 className="text-xl font-black text-api-navy mb-10 border-b border-gray-50 pb-6 flex items-center justify-between tracking-tight relative z-10">
-                {isHistory ? "Historical Analysis" : "Performance Analytics"}
-                <span className="text-[10px] font-black text-gray-300 uppercase tracking-widest bg-gray-50 px-3 py-1 rounded-full">Items: {lastResult.total}</span>
-             </h3>
-             <div className="grid grid-cols-2 gap-4 sm:gap-6 relative z-10 mb-12">
-                <div className="bg-blue-50/30 p-6 rounded-[2rem] border border-blue-100 group/card transition-all">
-                   <div className="text-[9px] font-black uppercase text-api-navy mb-1 tracking-widest">Correct</div>
-                   <div className="text-3xl font-black text-api-navy tracking-tighter">{correctCount}</div>
-                </div>
-                <div className="bg-red-50/30 p-6 rounded-[2rem] border border-red-100 group/card transition-all">
-                   <div className="text-[9px] font-black uppercase text-red-600 mb-1 tracking-widest">Incorrect</div>
-                   <div className="text-3xl font-black text-api-navy tracking-tighter">{incorrectCount}</div>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-[2rem] border border-gray-100 group/card transition-all">
-                   <div className="text-[9px] font-black uppercase text-gray-400 mb-1 tracking-widest">Skipped</div>
-                   <div className="text-3xl font-black text-api-navy tracking-tighter">{unattemptedCount}</div>
-                </div>
-                <div className="bg-yellow-50/30 p-6 rounded-[2rem] border border-api-gold group/card transition-all">
-                   <div className="text-[9px] font-black uppercase text-api-gold mb-1 tracking-widest">Time Taken</div>
-                   <div className="text-3xl font-black text-api-navy tracking-tighter whitespace-nowrap">{formatTime(lastResult.timeTaken)}</div>
-                </div>
-             </div>
-             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 relative z-10 pt-8 border-t border-gray-50">
-               <button onClick={onViewExams} className="btn-secondary py-5 text-sm">{isHistory ? "Launch New" : "New Session"}</button>
-               <button onClick={onViewDashboard} className="btn-primary py-5 text-sm">{isHistory ? "Back to Dashboard" : "Dashboard"}</button>
-             </div>
+          <div className="flex-grow grid grid-cols-2 gap-4 w-full">
+            {[
+              { label: "Correct", val: correctCount, color: "text-blue-600", bg: "bg-blue-50/50" },
+              { label: "Incorrect", val: incorrectCount, color: "text-red-600", bg: "bg-red-50/50" },
+              { label: "Skipped", val: unattemptedCount, color: "text-text-secondary", bg: "bg-slate-50/50" },
+              { label: "Time Taken", val: formatTime(lastResult.timeTaken), color: "text-text-primary", bg: "bg-bg" }
+            ].map((stat, i) => (
+              <div key={i} className={cn("p-5 rounded-2xl border border-border flex flex-col hover:shadow-sm transition-all", stat.bg)}>
+                <span className="text-[9px] font-bold uppercase text-text-secondary/60 tracking-widest mb-1">{stat.label}</span>
+                <span className={cn("text-2xl font-bold tracking-tight", stat.color)}>{stat.val}</span>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+
+        <div className="flex flex-col gap-4">
+           <button onClick={onViewExams} className="btn-primary w-full py-4 text-sm shadow-lg shadow-accent/20">
+             {isHistory ? "Retake Exam" : "Browse More Exams"}
+           </button>
+           <button onClick={onViewDashboard} className="btn-secondary w-full py-4 text-sm">
+             Back to Dashboard
+           </button>
+        </div>
       </div>
 
-      {/* Question Review Section */}
       {(lastResult.mode === "Practice" || lastResult.mode === "Hint" || isHistory) && exam && (
-        <section className="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 p-8 sm:p-14 border border-white">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12 border-b border-gray-100 pb-8">
-            <div>
-              <h2 className="text-3xl font-black text-api-navy tracking-tight mb-2">Detailed Evaluation</h2>
-              <p className="text-gray-400 font-bold uppercase text-[10px] tracking-widest">Question-by-question technical review</p>
-            </div>
-            <div className="flex bg-gray-50 p-1.5 rounded-2xl gap-2">
-               <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm"><div className="w-2.5 h-2.5 rounded-full bg-api-navy" /> <span className="text-[10px] font-black text-api-navy uppercase">Correct</span></div>
-               <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm"><div className="w-2.5 h-2.5 rounded-full bg-red-500" /> <span className="text-[10px] font-black text-api-navy uppercase">Incorrect</span></div>
-            </div>
-          </div>
-
-          <div className="space-y-8">
+        <section className="space-y-8">
+          <div className="section-label">Detailed Question Review</div>
+          
+          <div className="space-y-6">
             {exam.questions.map((q, qIdx) => {
               const userAns = lastResult.answers[q.id];
-              
               let isCorrect = false;
               if (userAns !== undefined) {
                 if (q.type === "multiple") {
@@ -190,24 +178,24 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
 
                   return (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="bg-white/80 p-5 rounded-2xl border border-gray-100 shadow-sm group-hover:shadow-md transition-shadow">
-                        <div className="text-[10px] font-black uppercase text-gray-400 mb-2 tracking-widest">Your Selections</div>
+                      <div className="bg-bg p-5 rounded-xl border border-border">
+                        <div className="text-[9px] font-bold uppercase text-text-secondary mb-4 tracking-widest">Your Choices</div>
                         <div className="space-y-2">
                           {userArr.length > 0 ? userArr.map(idx => (
                             <div key={idx} className="flex items-center gap-3">
-                              <span className="w-6 h-6 rounded bg-gray-100 flex items-center justify-center font-black text-[10px]">{String.fromCharCode(65 + idx)}</span>
-                              <span className="text-sm font-bold text-gray-600 truncate">{options[idx]}</span>
+                              <span className="w-6 h-6 rounded bg-bg-panel border border-border flex items-center justify-center font-bold text-[10px] text-text-primary">{String.fromCharCode(65 + idx)}</span>
+                              <span className="text-xs text-text-secondary truncate">{options[idx]}</span>
                             </div>
-                          )) : <div className="text-sm text-gray-400 font-bold italic">No selection made</div>}
+                          )) : <div className="text-xs text-text-secondary opacity-40 font-medium">Not answered</div>}
                         </div>
                       </div>
-                      <div className="bg-white/80 p-5 rounded-2xl border border-api-gold shadow-sm border-dashed">
-                        <div className="text-[10px] font-black uppercase text-api-navy mb-2 tracking-widest">Correct Answers</div>
+                      <div className="bg-blue-50/50 p-5 rounded-xl border border-blue-100">
+                        <div className="text-[9px] font-bold uppercase text-blue-600 mb-4 tracking-widest">Correct Answer</div>
                         <div className="space-y-2">
                           {correctArr.map(idx => (
                             <div key={idx} className="flex items-center gap-3">
-                              <span className="w-6 h-6 rounded bg-api-navy text-white flex items-center justify-center font-black text-[10px]">{String.fromCharCode(65 + idx)}</span>
-                              <span className="text-sm font-bold text-api-navy truncate">{options[idx]}</span>
+                              <span className="w-6 h-6 rounded bg-blue-600 text-white flex items-center justify-center font-bold text-[10px]">{String.fromCharCode(65 + idx)}</span>
+                              <span className="text-xs font-semibold text-text-primary truncate">{options[idx]}</span>
                             </div>
                           ))}
                         </div>
@@ -221,25 +209,25 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                   const userMapping = (userAns as Record<number, number>) || {};
 
                   return (
-                    <div className="bg-white/80 p-6 rounded-2xl border border-gray-100 shadow-sm">
-                      <div className="text-[10px] font-black uppercase text-gray-400 mb-4 tracking-widest">Matching Evaluation</div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="bg-bg p-6 rounded-xl border border-border">
+                      <div className="text-[9px] font-bold uppercase text-text-secondary mb-6 tracking-widest">Relationship Mapping</div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {pairs.map((p, lIdx) => {
                           const userMatch = userMapping[lIdx];
                           const isMatchCorrect = userMatch === lIdx;
                           return (
-                            <div key={lIdx} className={cn("p-3 rounded-xl border flex flex-col gap-2", isMatchCorrect ? "bg-api-navy/5 border-api-navy/10" : "bg-red-50/50 border-red-100")}>
-                               <div className="text-[10px] font-black text-api-navy uppercase opacity-40">Item #{lIdx + 1}</div>
-                               <div className="font-bold text-gray-800">{p.left}</div>
-                               <div className="h-px bg-gray-200" />
-                               <div className="flex items-center gap-2">
-                                  <div className={cn("w-2 h-2 rounded-full", isMatchCorrect ? "bg-api-navy" : "bg-red-500")} />
-                                  <span className={cn("text-sm font-medium", isMatchCorrect ? "text-api-navy" : "text-red-700")}>
-                                     {userMatch !== undefined ? pairs[userMatch].right : "Unmatched"}
-                                  </span>
+                            <div key={lIdx} className={cn("p-4 rounded-xl border flex flex-col gap-2 transition-colors", isMatchCorrect ? "bg-green-50/30 border-green-100" : "bg-red-50/30 border-red-100")}>
+                               <div className="flex items-center justify-between">
+                                 <span className="text-[9px] font-bold text-text-secondary lowercase tracking-wider opacity-60">pair {lIdx + 1}</span>
+                                 <div className={cn("w-1.5 h-1.5 rounded-full", isMatchCorrect ? "bg-green-500" : "bg-red-500")} />
+                               </div>
+                               <div className="text-sm font-bold text-text-primary">{p.left}</div>
+                               <div className="h-px bg-border my-1" />
+                               <div className="text-xs text-text-secondary font-medium italic">
+                                  {userMatch !== undefined ? pairs[userMatch].right : "No selection"}
                                </div>
                                {!isMatchCorrect && (
-                                 <div className="mt-1 text-[10px] font-black text-api-navy uppercase italic">Should be: {p.right}</div>
+                                 <div className="mt-2 text-[10px] font-bold text-green-700 bg-green-100/50 p-2 rounded-lg">Correct: {p.right}</div>
                                )}
                             </div>
                           );
@@ -252,27 +240,27 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                 const options = q.options || [];
                 return (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-white/80 p-5 rounded-2xl border border-gray-100 shadow-sm group-hover:shadow-md transition-shadow">
-                       <div className="text-[10px] font-black uppercase text-gray-400 mb-2 tracking-widest">Your Selection</div>
-                       <div className="flex items-center gap-3">
+                    <div className="bg-bg p-5 rounded-xl border border-border">
+                       <div className="text-[9px] font-bold uppercase text-text-secondary mb-4 tracking-widest">Your Selection</div>
+                       <div className="flex items-center gap-4">
                           <span className={cn(
-                            "w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs",
-                            isCorrect ? "bg-api-navy text-white" : "bg-red-50 text-red-700"
+                            "w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shadow-sm",
+                            isCorrect ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
                           )}>
                             {userAns !== undefined ? String.fromCharCode(65 + userAns) : "-"}
                           </span>
-                          <span className="font-bold text-gray-600 truncate">{userAns !== undefined ? options[userAns] : "Not Attempted"}</span>
+                          <span className="font-bold text-text-primary">{userAns !== undefined ? options[userAns] : "Skipped"}</span>
                        </div>
                     </div>
 
                     {!isCorrect && (
-                      <div className="bg-white/80 p-5 rounded-2xl border border-api-gold shadow-sm border-dashed">
-                         <div className="text-[10px] font-black uppercase text-api-navy mb-2 tracking-widest">Valid Alternative</div>
-                         <div className="flex items-center gap-3">
-                            <span className="w-7 h-7 rounded-lg bg-api-navy text-white flex items-center justify-center font-black text-xs">
+                      <div className="bg-blue-50/50 p-5 rounded-xl border border-blue-100">
+                         <div className="text-[9px] font-bold uppercase text-blue-600 mb-4 tracking-widest">Correct Solution</div>
+                         <div className="flex items-center gap-4">
+                            <span className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-blue-200">
                               {String.fromCharCode(65 + (q.correctAnswer as number))}
                             </span>
-                            <span className="font-bold text-api-navy truncate">{options[q.correctAnswer as number]}</span>
+                            <span className="font-bold text-text-primary">{options[q.correctAnswer as number]}</span>
                          </div>
                       </div>
                     )}
@@ -282,39 +270,41 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
 
               return (
                 <div key={q.id} className={cn(
-                  "p-8 rounded-[2rem] border-2 transition-all relative overflow-hidden group",
-                  isCorrect ? "bg-api-navy/5 border-api-navy/10" : "bg-red-50/20 border-red-100"
+                  "p-8 rounded-3xl border transition-all relative overflow-hidden group/item shadow-sm",
+                  isCorrect ? "bg-bg-panel border-border" : "bg-red-50/10 border-red-100"
                 )}>
-                  {/* Status Indicator Bar */}
-                  <div className={cn("absolute left-0 top-0 bottom-0 w-2", isCorrect ? "bg-api-navy" : "bg-red-500")} />
+                  <div className={cn("absolute left-0 top-0 bottom-0 w-1.5", isCorrect ? "bg-green-500" : "bg-red-500")} />
                   
-                  <div className="flex items-start gap-6">
+                  <div className="flex items-start gap-6 sm:gap-8">
                     <div className={cn(
-                      "w-12 h-12 rounded-2xl flex items-center justify-center font-black text-lg shrink-0 outline outline-4 outline-white shadow-sm",
-                      isCorrect ? "bg-api-navy text-white" : "bg-red-500 text-white"
+                      "w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg shrink-0 border shadow-sm transition-all group-hover/item:scale-105",
+                      isCorrect ? "bg-green-500 text-white border-green-400" : "bg-red-500 text-white border-red-400"
                     )}>
                       {qIdx + 1}
                     </div>
                     
-                    <div className="flex-grow space-y-8">
-                      <div className="space-y-4">
+                    <div className="flex-grow space-y-6">
+                      <div className="space-y-3">
                         <div className="flex items-center gap-2">
-                           {isCorrect ? <CheckCircle2 size={18} className="text-api-navy" /> : <XCircle size={18} className="text-red-600" />}
-                           <span className={cn("text-[10px] font-black tracking-[0.2em] uppercase", isCorrect ? "text-api-navy" : "text-red-600")}>
-                             {isCorrect ? "Validated" : "Deficient Response"}
+                           <span className={cn("text-[10px] font-bold tracking-wider uppercase", isCorrect ? "text-green-600" : "text-red-600")}>
+                             {isCorrect ? "Correct Result" : "Incorrect Result"}
                            </span>
                         </div>
-                        <p className="text-xl font-bold text-api-navy leading-snug">{q.text}</p>
+                        <p className="text-xl font-bold text-text-primary tracking-tight leading-snug">{q.text}</p>
                       </div>
 
-                      {renderAnswerInfo()}
+                      <div className="relative z-10">
+                        {renderAnswerInfo()}
+                      </div>
 
                       {q.hint && (
-                        <div className="flex items-start gap-3 bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
-                          <Info size={18} className="text-blue-500 shrink-0 mt-0.5" />
+                        <div className="flex items-start gap-4 bg-bg p-6 rounded-2xl border border-border relative overflow-hidden">
+                          <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 border border-amber-200 shrink-0">
+                            <Lightbulb size={20} />
+                          </div>
                           <div className="space-y-1">
-                            <span className="text-[10px] font-black uppercase text-blue-400 tracking-widest">Technical Justification</span>
-                            <p className="text-sm font-medium text-api-navy italic leading-relaxed">{q.hint}</p>
+                            <span className="text-[10px] font-bold uppercase text-amber-600 tracking-wider">Reference Info</span>
+                            <p className="text-sm text-text-secondary leading-relaxed font-medium">{q.hint}</p>
                           </div>
                         </div>
                       )}

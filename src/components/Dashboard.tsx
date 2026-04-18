@@ -1,5 +1,6 @@
 import React from "react";
-import { Plus, RotateCcw, Clock, FileText, PieChart as PieChartIcon } from "lucide-react";
+import { Plus, RotateCcw, Clock, FileText, PieChart as PieChartIcon, LayoutDashboard, AlertCircle } from "lucide-react";
+import { motion } from "motion/react";
 import { Exam, ExamAttempt } from "../types";
 import { cn } from "../lib/utils";
 
@@ -18,84 +19,122 @@ export const Dashboard: React.FC<DashboardProps> = ({ exams, attempts, onViewMan
     : 0;
 
   return (
-    <div className="space-y-6">
-      <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
-        <div>
-          <h1 className="text-4xl font-black text-api-navy tracking-tight mb-1">Dashboard</h1>
-          <p className="text-gray-400 font-bold text-sm uppercase tracking-widest">API Certification Control Panel</p>
+    <div className="space-y-12 pb-10">
+      {/* Metrics Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="md:col-span-2 glass-card flex flex-col justify-between overflow-hidden group">
+          <div className="absolute top-0 right-0 p-10 opacity-5 -rotate-12 group-hover:rotate-0 transition-transform duration-700 pointer-events-none">
+            <LayoutDashboard size={140} className="text-accent" />
+          </div>
+          <div className="space-y-4 relative z-10">
+            <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent border border-accent/20">
+              <PieChartIcon size={20} />
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">Performance Average</p>
+              <h3 className="text-3xl font-bold text-text-primary tracking-tight font-display">Learning Progress</h3>
+            </div>
+          </div>
+          <div className="flex items-end justify-between mt-10 relative z-10">
+            <div className="text-6xl font-black text-text-primary tracking-tighter">
+              {avgScore}<span className="text-xl font-bold ml-1 text-accent">%</span>
+            </div>
+            <button onClick={onViewManage} className="btn-primary scale-90 origin-bottom-right shadow-lg shadow-accent/20">
+              <Plus size={16} /> Create Exam
+            </button>
+          </div>
         </div>
-        <button onClick={onViewManage} className="btn-primary">
-          <Plus size={18} /> New Examination Profile
-        </button>
-      </header>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
-        <div className="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-white flex items-center justify-between group hover:scale-[1.02] transition-all">
-          <div className="p-4 bg-blue-50 text-api-navy rounded-3xl group-hover:bg-api-navy group-hover:text-white transition-colors duration-500"><FileText size={24} /></div>
-          <div className="text-right">
-            <div className="text-4xl font-black text-api-navy tracking-tighter">{totalExams}</div>
-            <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-widest">Catalog Total</h3>
+        <div className="glass-card flex flex-col justify-between group">
+          <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent border border-accent/20 mb-6">
+            <FileText size={18} />
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-1">Total Exams</p>
+            <div className="text-5xl font-black text-text-primary tracking-tight">{totalExams}</div>
+            <p className="text-[11px] font-medium text-text-secondary mt-2">Available in library</p>
           </div>
         </div>
-        <div className="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-yellow-900/5 border border-white flex items-center justify-between group hover:scale-[1.02] transition-all">
-          <div className="p-4 bg-yellow-50 text-api-gold rounded-3xl group-hover:bg-api-gold group-hover:text-api-navy transition-colors duration-500"><PieChartIcon size={24} /></div>
-          <div className="text-right">
-            <div className="text-4xl font-black text-api-navy tracking-tighter">{avgScore}%</div>
-            <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-widest">Aggregate Acc.</h3>
+
+        <div className="glass-card flex flex-col justify-between group">
+          <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent border border-accent/20 mb-6">
+            <Clock size={18} />
           </div>
-        </div>
-        <div className="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-white flex items-center justify-between group hover:scale-[1.02] transition-all">
-          <div className="p-4 bg-blue-50 text-api-navy rounded-3xl group-hover:bg-api-navy group-hover:text-white transition-colors duration-500"><Clock size={24} /></div>
-          <div className="text-right">
-            <div className="text-4xl font-black text-api-navy tracking-tighter">{attempts.length}</div>
-            <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-widest">Total Sessions</h3>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-1">Total Sessions</p>
+            <div className="text-5xl font-black text-text-primary tracking-tight">{attempts.length}</div>
+            <p className="text-[11px] font-medium text-text-secondary mt-2">Completed attempts</p>
           </div>
         </div>
       </div>
 
-      <section className="mt-12 bg-white rounded-[2.5rem] p-8 sm:p-10 shadow-xl shadow-blue-900/5 border border-white">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-xl font-black flex items-center gap-3 text-api-navy tracking-tight"><RotateCcw size={22} className="text-api-gold" /> Historical Records</h2>
-          <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest bg-gray-50 px-3 py-1 rounded-full">Recent Activity</span>
-        </div>
+      <section className="space-y-6">
+        <div className="section-label">Performance History / Recent Activity</div>
         
-        <div className="overflow-x-auto custom-scrollbar">
-          {attempts.length === 0 ? (
-            <div className="p-20 text-center text-gray-300 italic text-sm font-bold uppercase tracking-widest">Null Sessions Detected</div>
-          ) : (
-            <table className="w-full text-left min-w-[600px]">
-              <thead className="text-api-navy text-[10px] font-black uppercase tracking-widest border-b border-gray-100">
-                <tr>
-                  <th className="pb-6 px-4">Timestamp</th>
-                  <th className="pb-6 px-4">Examination Module</th>
-                  <th className="pb-6 px-4 text-center">Modality</th>
-                  <th className="pb-6 px-4 text-center">Result</th>
-                  <th className="pb-6 px-4 text-right">Metrics</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-50">
-                {attempts.slice(0, 10).map(a => (
-                   <tr 
-                    key={a.id} 
-                    onClick={() => onSelectAttempt(a)}
-                    className="hover:bg-gray-50/50 transition-colors cursor-pointer group/row"
-                  >
-                    <td className="px-6 py-4 text-[11px] font-bold text-gray-400">{a.date}</td>
-                    <td className="px-6 py-4 text-xs font-bold text-api-navy">{exams.find(e => e.id === a.examId)?.title || "Deleted Exam"}</td>
-                    <td className="px-6 py-4"><span className="px-2 py-0.5 bg-gray-100 text-api-navy text-[9px] font-black uppercase rounded">{a.mode}</span></td>
-                    <td className="px-6 py-4 text-center font-black">
-                       <span className={cn(a.score >= 70 ? "text-api-navy" : "text-red-500")}>{a.score}%</span>
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      <div className="w-20 h-1.5 bg-gray-100 rounded-full ml-auto overflow-hidden">
-                         <div className={cn("h-full rounded-full", a.score >= 70 ? "bg-api-navy" : "bg-red-500")} style={{ width: `${a.score}%` }} />
-                      </div>
-                    </td>
+        <div className="bg-bg-panel border border-border rounded-3xl overflow-hidden shadow-sm">
+          <div className="overflow-x-auto custom-scrollbar">
+            {attempts.length === 0 ? (
+              <div className="py-24 text-center flex flex-col items-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-bg flex items-center justify-center"><AlertCircle className="text-text-secondary opacity-30" size={32} /></div>
+                <div className="space-y-1">
+                  <p className="text-sm font-semibold text-text-secondary">No activity recorded yet</p>
+                  <p className="text-xs text-text-secondary opacity-60">Complete an exam to see your results here.</p>
+                </div>
+              </div>
+            ) : (
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-border bg-bg/50">
+                    <th className="px-8 py-5 text-[10px] font-bold text-text-secondary uppercase tracking-widest">Date & Time</th>
+                    <th className="px-8 py-5 text-[10px] font-bold text-text-secondary uppercase tracking-widest">Exam Module</th>
+                    <th className="px-8 py-5 text-[10px] font-bold text-text-secondary uppercase tracking-widest text-center">Outcome</th>
+                    <th className="px-8 py-5 text-[10px] font-bold text-text-secondary uppercase tracking-widest text-right">Score</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {attempts.slice(0, 8).map(a => (
+                    <tr 
+                      key={a.id} 
+                      onClick={() => onSelectAttempt(a)}
+                      className="hover:bg-bg/50 transition-colors cursor-pointer group/row"
+                    >
+                      <td className="px-8 py-5">
+                        <div className="text-xs font-medium text-text-secondary">{a.date}</div>
+                      </td>
+                      <td className="px-8 py-5">
+                        <div className="flex flex-col">
+                          <span className="text-sm font-bold text-text-primary tracking-tight">{exams.find(e => e.id === a.examId)?.title || "Deleted Exam"}</span>
+                          <span className="text-[10px] text-text-secondary opacity-60 font-mono">ID: {a.id.slice(0, 8)}</span>
+                        </div>
+                      </td>
+                      <td className="px-8 py-5 text-center">
+                        <span className={cn(
+                          "px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border",
+                          a.score >= 70 ? "bg-green-500/10 text-green-600 border-green-200" : "bg-red-500/10 text-red-600 border-red-200"
+                        )}>
+                          {a.score >= 70 ? "Pass" : "Fail"}
+                        </span>
+                      </td>
+                      <td className="px-8 py-5">
+                        <div className="flex items-center justify-end gap-6">
+                          <div className={cn("text-xl font-bold tracking-tight", a.score >= 70 ? "text-text-primary" : "text-red-500")}>
+                            {a.score}%
+                          </div>
+                          <div className="w-2 h-10 bg-bg rounded-full relative overflow-hidden flex items-end">
+                            <motion.div 
+                              initial={{ height: 0 }}
+                              animate={{ height: `${a.score}%` }}
+                              className={cn("w-full transition-colors", a.score >= 70 ? "bg-accent" : "bg-red-500")} 
+                            />
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
         </div>
       </section>
     </div>

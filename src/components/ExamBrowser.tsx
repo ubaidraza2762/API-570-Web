@@ -23,7 +23,7 @@ export const ExamBrowser: React.FC<ExamBrowserProps> = ({ exams, onStartExam }) 
   const groupedExams = useMemo(() => {
     const groups: Record<string, Exam[]> = {};
     filteredExams.forEach(e => {
-      const g = e.group || "Other Certification Tests";
+      const g = e.group || "Other Certifications";
       if (!groups[g]) groups[g] = [];
       groups[g].push(e);
     });
@@ -37,44 +37,42 @@ export const ExamBrowser: React.FC<ExamBrowserProps> = ({ exams, onStartExam }) 
     return [...baseOrder, ...others];
   }, [groupedExams]);
 
-  // If searching, we skip the category view and show all results
   const showCategoryView = !search && !selectedGroup;
 
   return (
-    <div className="space-y-16">
-      <header className="flex flex-col md:flex-row justify-between md:items-center gap-8 mb-16">
-        <div className="flex items-center gap-6">
+    <div className="space-y-12 pb-20">
+      <header className="flex flex-col md:flex-row justify-between md:items-center gap-6">
+        <div className="flex items-center gap-4">
           {selectedGroup && !search && (
             <button 
               onClick={() => setSelectedGroup(null)}
-              className="p-4 bg-white border-2 border-gray-100 rounded-2xl hover:border-api-gold hover:bg-api-gold/5 transition-all group"
+              className="p-3 bg-bg-panel border border-border rounded-xl hover:bg-bg transition-all shadow-sm"
+              title="Back to Categories"
             >
-              <ChevronLeft className="text-api-navy group-hover:text-api-gold" size={32} />
+              <ChevronLeft size={20} />
             </button>
           )}
           <div>
-            <h1 className="text-5xl font-black text-api-navy tracking-tight mb-2">
-              {search ? "Search Results" : selectedGroup || "Select Category"}
+            <h1 className="text-2xl font-bold text-text-primary tracking-tight font-display">
+              {search ? "Search Results" : selectedGroup || "Assessment Categories"}
             </h1>
-            <p className="text-gray-400 font-bold text-sm uppercase tracking-widest flex items-center gap-2">
-              Professional Certification Catalog
-            </p>
+            <p className="text-xs text-text-secondary mt-1">Browse available certification study modules</p>
           </div>
         </div>
-        <div className="relative w-full md:w-[28rem] group">
-          <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-api-gold transition-colors" size={24} />
+        <div className="relative w-full md:w-96 group">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-text-secondary opacity-50 group-focus-within:text-accent transition-colors" size={18} />
           <input 
             type="text" 
-            placeholder="Search API modules..." 
+            placeholder="Search by title, year, or code..." 
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-16 pr-8 py-5 border-2 rounded-[2rem] w-full border-gray-100 bg-white focus:ring-8 focus:ring-api-gold/5 focus:border-api-gold outline-none shadow-2xl shadow-blue-900/5 transition-all font-bold text-api-navy text-lg placeholder:text-gray-300"
+            className="tech-input pl-11 pr-4 py-3 text-sm placeholder:text-text-secondary/50"
           />
         </div>
       </header>
 
       {showCategoryView ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {groupOrder.map((groupName) => {
             const count = (groupedExams[groupName] || []).length;
             const isFinalExam = groupName === "API 570 Final Exam";
@@ -85,29 +83,34 @@ export const ExamBrowser: React.FC<ExamBrowserProps> = ({ exams, onStartExam }) 
                 key={groupName}
                 onClick={() => setSelectedGroup(groupName)}
                 className={cn(
-                  "p-12 rounded-[3.5rem] text-left transition-all relative overflow-hidden group shadow-2xl min-h-[22rem]",
-                  isFinalExam ? "bg-api-navy" : isMainCode ? "bg-api-gold" : "bg-slate-700"
+                  "p-8 rounded-3xl text-left transition-all relative overflow-hidden group border border-border hover:shadow-lg",
+                  isFinalExam ? "bg-accent/[0.03]" : isMainCode ? "bg-emerald-500/[0.03]" : "bg-bg-panel"
                 )}
               >
-                {/* Decorative Pattern */}
-                <div className="absolute top-0 right-0 p-12 opacity-10 group-hover:scale-125 group-hover:opacity-20 transition-all pointer-events-none">
-                  {isFinalExam ? <BookOpen size={240} /> : <FileText size={240} />}
+                <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:scale-110 group-hover:opacity-10 transition-all duration-700 pointer-events-none">
+                  {isFinalExam ? <BookOpen size={200} /> : <FileText size={200} />}
                 </div>
 
                 <div className="relative z-10 h-full flex flex-col">
-                  <span className={cn("font-black text-sm uppercase tracking-[0.3em] mb-4", isMainCode ? "text-api-navy/50" : "text-white/50")}>API Certification</span>
-                  <h2 className={cn("text-4xl lg:text-5xl font-black mb-8 leading-tight max-w-[15rem]", isMainCode ? "text-api-navy" : "text-white")}>
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className={cn("w-1.5 h-1.5 rounded-full", isFinalExam ? "bg-accent" : isMainCode ? "bg-emerald-500" : "bg-text-secondary")} />
+                    <span className="font-bold text-[10px] uppercase tracking-wider text-text-secondary/60">Study Resource Group</span>
+                  </div>
+                  
+                  <h2 className="text-3xl font-bold text-text-primary mb-6 leading-tight tracking-tight font-display">
                     {groupName}
                   </h2>
                   
                   <div className="mt-auto flex items-center justify-between">
-                    <div className={cn("px-6 py-3 rounded-2xl backdrop-blur-md", isMainCode ? "bg-api-navy/10" : "bg-white/10")}>
-                      <span className={cn("font-black text-xs uppercase tracking-widest leading-none", isMainCode ? "text-api-navy" : "text-white")}>
-                        {count} MODULES AVAILABLE
-                      </span>
+                    <div className="flex flex-col">
+                       <span className="text-3xl font-black text-text-primary tracking-tighter">{count}</span>
+                       <span className="text-[10px] font-bold uppercase tracking-wider text-text-secondary">Modules Available</span>
                     </div>
-                    <div className={cn("w-16 h-16 rounded-full flex items-center justify-center group-hover:translate-x-3 transition-transform", isMainCode ? "bg-api-navy text-white" : "bg-white text-api-navy")}>
-                      <ArrowRight size={32} strokeWidth={3} />
+                    <div className={cn(
+                      "w-12 h-12 rounded-full flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all shadow-sm border border-border",
+                      isFinalExam ? "bg-accent/10 text-accent" : "bg-emerald-500/10 text-emerald-600"
+                    )}>
+                      <ArrowRight size={20} />
                     </div>
                   </div>
                 </div>
@@ -116,69 +119,68 @@ export const ExamBrowser: React.FC<ExamBrowserProps> = ({ exams, onStartExam }) 
           })}
         </div>
       ) : Object.keys(groupedExams).length > 0 ? (
-        <div className="space-y-24">
+        <div className="space-y-16">
           {(search ? Object.keys(groupedExams) : [selectedGroup!]).map(groupName => {
             const examsInGroup = groupedExams[groupName];
             if (!examsInGroup) return null;
  
             return (
-              <section key={groupName} className="relative">
-                <div className="flex items-center gap-4 mb-10 overflow-x-auto pb-4 scrollbar-hide">
-                  <div className="px-8 py-4 bg-white border-2 border-gray-100 rounded-2xl shadow-sm flex items-center gap-3 whitespace-nowrap">
-                    <span className="text-xl font-black text-api-navy">{groupName}</span>
-                    <div className="w-1.5 h-1.5 rounded-full bg-api-gold" />
-                    <span className="text-api-gold font-black text-xs uppercase tracking-widest">{examsInGroup.length} AVAILABLE</span>
-                  </div>
-                </div>
+              <section key={groupName} className="space-y-8">
+                <div className="section-label">{groupName} ({examsInGroup.length})</div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {examsInGroup.map(exam => (
-                    <div key={exam.id} className="bg-white p-8 rounded-[2rem] flex flex-col hover:shadow-2xl border-2 border-gray-50 hover:border-api-gold/30 transition-all group">
+                    <div key={exam.id} className="glass-card flex flex-col group relative overflow-hidden p-6 rounded-2xl">
                       <div className="flex justify-between items-start mb-6">
-                        <div className="p-3 bg-gray-50 rounded-2xl text-api-navy">
-                          <FileText size={24} />
+                        <div className="w-10 h-10 rounded-xl bg-bg border border-border flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors">
+                          <FileText size={18} />
                         </div>
-                        <div className={cn("px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider shadow-sm", exam.bookType === "Open Book" ? "bg-api-gold/10 text-api-navy" : "bg-red-50 text-red-500")}>
+                        <div className={cn(
+                          "px-3 py-1 rounded-lg text-[9px] font-bold uppercase tracking-wider border",
+                          exam.bookType === "Open Book" ? "bg-blue-500/5 text-blue-600 border-blue-200/50" : "bg-orange-500/5 text-orange-600 border-orange-200/50"
+                        )}>
                           {exam.bookType}
                         </div>
                       </div>
 
-                      <div className="mb-8">
-                        <span className="text-[10px] font-black text-gray-300 uppercase tracking-[0.2em] block mb-2">{exam.year} Edition</span>
-                        <h3 className="text-xl font-black text-api-navy leading-tight group-hover:text-api-gold transition-colors min-h-[3rem] line-clamp-2">
+                      <div className="mb-8 space-y-2">
+                        <span className="text-[10px] font-bold text-text-secondary/60 uppercase tracking-widest flex items-center gap-2">
+                           {exam.year} Edition
+                        </span>
+                        <h3 className="text-lg font-bold text-text-primary leading-tight tracking-tight group-hover:text-accent transition-colors line-clamp-2">
                           {exam.title}
                         </h3>
                       </div>
 
-                      <div className="flex items-center gap-4 text-[10px] text-gray-400 mb-8 font-black uppercase tracking-widest">
-                        <span className="flex items-center gap-1.5"><Clock size={14} className="text-api-gold" /> {exam.duration} Min</span>
+                      <div className="flex items-center gap-4 text-[10px] text-text-secondary/70 mb-8 font-bold uppercase tracking-wider">
+                        <span className="flex items-center gap-1.5"><Clock size={14} className="opacity-40" /> {exam.duration}m</span>
                         {exam.questions.length > 0 && (
-                          <span className="flex items-center gap-1.5"><Search size={14} className="text-api-navy" /> {exam.questions.length} Items</span>
+                          <span className="flex items-center gap-1.5 font-mono"><Search size={14} className="opacity-40" /> q:{exam.questions.length}</span>
                         )}
                       </div>
 
-                      <div className="mt-auto space-y-2 pt-6 border-t border-gray-50">
+                      <div className="mt-auto space-y-2 pt-6 border-t border-border">
                         <button 
                           onClick={() => onStartExam(exam, "Standard")} 
                           disabled={exam.questions.length === 0} 
-                          className="w-full py-4 bg-api-navy text-white rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-api-navy/90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-900/10 disabled:opacity-30"
+                          className="btn-primary w-full py-2.5 text-xs disabled:opacity-20"
                         >
-                          <Play size={14} className="fill-current" /> Start Test
+                          <Play size={12} className="fill-current" /> Start Practice
                         </button>
                         <div className="grid grid-cols-2 gap-2">
                           <button 
                             onClick={() => onStartExam(exam, "Practice")} 
                             disabled={exam.questions.length === 0} 
-                            className="bg-gray-50 text-api-navy hover:bg-api-gold hover:text-api-navy font-black py-3 rounded-xl flex items-center justify-center gap-2 text-[9px] uppercase tracking-widest transition-all disabled:opacity-30 border border-gray-100"
+                            className="bg-bg hover:bg-bg-panel border border-border text-text-secondary text-[10px] font-bold py-2 rounded-lg transition-colors uppercase tracking-wider disabled:opacity-30"
                           >
-                            Practice
+                            Drill
                           </button>
                           <button 
                             onClick={() => onStartExam(exam, "Hint")} 
                             disabled={exam.questions.length === 0} 
-                            className="bg-gray-50 text-api-gold hover:bg-api-gold hover:text-api-navy font-black py-3 rounded-xl flex items-center justify-center gap-2 text-[9px] uppercase tracking-widest transition-all disabled:opacity-30 border border-gray-100"
+                            className="bg-bg hover:bg-bg-panel border border-border text-text-secondary text-[10px] font-bold py-2 rounded-lg transition-colors uppercase tracking-wider disabled:opacity-30"
                           >
-                            Guided
+                            Hints
                           </button>
                         </div>
                       </div>
@@ -190,9 +192,12 @@ export const ExamBrowser: React.FC<ExamBrowserProps> = ({ exams, onStartExam }) 
           })}
         </div>
       ) : (
-        <div className="p-32 text-center bg-white rounded-[3rem] border-4 border-dashed border-gray-50 shadow-inner">
-           <Search size={80} className="mx-auto text-gray-100 mb-8" />
-           <p className="text-gray-400 font-black text-xl">No certification modules match your criteria.</p>
+        <div className="py-24 text-center bg-bg-panel border border-border rounded-3xl flex flex-col items-center gap-6 shadow-sm">
+           <div className="w-16 h-16 bg-bg rounded-full flex items-center justify-center">
+             <Search size={32} className="text-text-secondary opacity-20" />
+           </div>
+           <p className="text-text-secondary font-bold text-lg">No Results Found</p>
+           <button onClick={() => {setSearch(""); setSelectedGroup(null);}} className="text-accent text-xs font-bold uppercase tracking-wider hover:underline">Clear all filters</button>
         </div>
       )}
     </div>
