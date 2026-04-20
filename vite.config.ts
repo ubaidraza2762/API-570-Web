@@ -7,7 +7,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: './',
+    base: '/API-570-Web/',
     plugins: [
       react(),
       tailwindcss(),
@@ -18,8 +18,7 @@ export default defineConfig(({ mode }) => {
           short_name: 'API 570',
           theme_color: '#3b82f6',
           icons: [
-            { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
-            { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png' }
+            { src: 'icon.svg', sizes: '512x512', type: 'image/svg+xml', purpose: 'any maskable' }
           ]
         }
       })
