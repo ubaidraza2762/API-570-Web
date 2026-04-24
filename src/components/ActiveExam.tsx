@@ -200,26 +200,26 @@ const ExamOptions: React.FC<SharedProps> = (props) => {
             whileTap={{ scale: isFaded ? 1 : 0.99 }}
             onClick={() => !isFaded && (isMulti ? handleMultiSelect(idx) : handleSelect(idx))}
             className={cn(
-              "w-full flex items-center gap-4 p-4 border-2 transition-all cursor-pointer rounded-xl min-h-[4rem]",
+              "w-full flex items-center gap-6 p-5 border-2 transition-all cursor-pointer rounded-2xl min-h-[5rem] shadow-sm mb-4",
               isCorrectFeedback 
-                ? "bg-[#2c972c] border-[#2c972c] text-white shadow-md"
+                ? "bg-[#2e7d32] border-[#2e7d32] text-white shadow-md scale-[1.01]"
                 : isWrongFeedback
-                  ? "bg-[#e11d48] border-[#e11d48] text-white shadow-md"
+                  ? "bg-[#d32f2f] border-[#d32f2f] text-white shadow-md scale-[1.01]"
                   : isSelected && examMode === "Standard"
                     ? "border-blue-600 bg-blue-50"
-                    : "border-slate-200 bg-white",
+                    : "border-slate-200 bg-white hover:border-blue-200",
               isFaded && "opacity-20 blur-[1px] pointer-events-none grayscale shadow-none"
             )}
           >
             <span className={cn(
-              "w-8 shrink-0 font-bold text-xl",
-              (isCorrectFeedback || isWrongFeedback) ? "text-white" : "text-blue-900"
+              "w-10 shrink-0 font-black text-2xl",
+              (isCorrectFeedback || isWrongFeedback) ? "text-white" : "text-[#004a99]"
             )}>
               {String.fromCharCode(65 + idx)}
             </span>
             <div className={cn(
-              "flex-1 text-lg font-medium",
-              (isCorrectFeedback || isWrongFeedback) ? "text-white" : "text-slate-600"
+              "flex-1 text-xl font-bold tracking-tight",
+              (isCorrectFeedback || isWrongFeedback) ? "text-white" : "text-[#333c4d]"
             )}>
               {opt}
             </div>
@@ -251,14 +251,14 @@ const UIActiveExam: React.FC<SharedProps> = (props) => {
   return (
     <div className="fixed inset-0 bg-white z-[1000] flex flex-col font-sans select-none overflow-hidden text-slate-900">
       {/* Header matching screenshot */}
-      <header className="bg-white px-4 py-3 flex items-center justify-between border-b border-slate-100 z-[1100] shrink-0">
-        <button onClick={discardSession} className="flex items-center gap-1 text-blue-800 font-semibold p-1">
-          <ChevronLeft size={24} />
-          <span>Back</span>
+      <header className="bg-white px-4 py-4 flex items-center justify-between border-b border-slate-100 z-[1100] shrink-0">
+        <button onClick={discardSession} className="flex items-center gap-1 text-blue-800 font-bold p-1">
+          <ChevronLeft size={28} strokeWidth={2.5} />
+          <span className="text-lg">Back</span>
         </button>
         
-        <div className="text-blue-900 font-bold text-lg tracking-tight uppercase">
-          {currentExam.group || currentExam.title}
+        <div className="text-blue-950 font-black text-xl tracking-tight uppercase">
+          {currentExam.title.toUpperCase()}
         </div>
 
         <button className="p-1 text-blue-900">
@@ -267,19 +267,19 @@ const UIActiveExam: React.FC<SharedProps> = (props) => {
       </header>
 
       {/* Status Bar matching screenshot */}
-      <div className="bg-white px-6 py-4 flex items-center justify-between border-b border-slate-50 shrink-0">
-        <FileText size={28} className="text-blue-900" />
+      <div className="bg-white px-6 py-6 flex items-center justify-between border-b border-slate-50 shrink-0">
+        <FileText size={32} strokeWidth={2.5} className="text-blue-900" />
         <div className="flex items-center gap-2">
-          <span className="text-2xl font-bold text-blue-900">{currentIdx + 1} / {currentExam.questions.length}</span>
+          <span className="text-3xl font-black text-blue-900">{currentIdx + 1} / {currentExam.questions.length}</span>
         </div>
-        <button onClick={toggleFlag} className={cn("p-1 transition-colors", activeAttempt.flags[question.id] ? "text-red-500" : "text-slate-300")}>
-          <Flag size={28} fill={activeAttempt.flags[question.id] ? "currentColor" : "none"} />
+        <button onClick={toggleFlag} className={cn("p-1 transition-colors", activeAttempt.flags[question.id] ? "text-red-500" : "text-slate-200")}>
+          <Flag size={32} strokeWidth={2.5} fill={activeAttempt.flags[question.id] ? "currentColor" : "none"} />
         </button>
       </div>
 
       <div className="flex-grow flex overflow-hidden">
-        <main className="flex-1 max-w-2xl mx-auto w-full flex flex-col pt-6 px-6 relative overflow-y-auto custom-scrollbar">
-          <div className="text-xl sm:text-2xl font-bold text-blue-950 leading-[1.3] mb-8">
+        <main className="flex-1 max-w-2xl mx-auto w-full flex flex-col pt-8 px-6 relative overflow-y-auto custom-scrollbar">
+          <div className="text-2xl sm:text-3xl font-extrabold text-[#002d5b] leading-[1.3] mb-10">
             {question.text}
           </div>
 
