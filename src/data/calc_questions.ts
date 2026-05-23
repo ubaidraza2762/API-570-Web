@@ -27,7 +27,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. 0.010 in. /yr. (0.254 mm/yr.)",
       "d. 0.012 in. /yr. (0.305 mm/yr.)."
     ],
-    correctAnswer: 1
+    correctAnswer: 2
   },
   {
     id: "calc-4",
@@ -44,7 +44,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
     id: "calc-5",
     text: "A Class 1 piping circuit has a t-actual=0.374 in. t-required=0.254 in. and a corrosion rate of 0.015 in. per year. How long before the next thickness inspection is required?",
     options: ["a. 2 years.", "b. 4 years.", "c. 5 years.", "d. 8 years."],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: "calc-6",
@@ -66,7 +66,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. 0.0040 in. /yr. (0.1014 mm/yr.).",
       "d. 0.0057 in. /yr. (0.1452 mm/yr.)."
     ],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: "calc-8",
@@ -77,7 +77,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. 20 years 3 months.",
       "d. 17 years 3 Months."
     ],
-    correctAnswer: 1
+    correctAnswer: 3
   },
   {
     id: "calc-9",
@@ -89,13 +89,13 @@ export const API_570_CALC_FEB_2025: Question[] = [
     id: "calc-10",
     text: "What is the appropriate pipe schedule for a new threaded NPS 2 seamless pipe, A-106 Gr B, used in 600 psig, 800°F turbine condensate drain service with 3/16-in. (4.76 mm) erosion Allowance and a 0.070-in. (1.78 mm) thread allowance?",
     options: ["a. Sch 40.", "b. Sch 80", "c. Sch 160.", "d. XXS."],
-    correctAnswer: 1
+    correctAnswer: 2
   },
   {
     id: "calc-11",
     text: "At what frequency should a buried pipe without effective CP and with a soil resistivity of 5,500 (ohm-centimetre) be inspected by excavation?",
     options: ["a. 5 years.", "b. 10 years.", "c. 15 years.", "d. 20 years."],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: "calc-12",
@@ -106,7 +106,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. 5/32 in. (4 mm).",
       "d. 3/16 in. (5 mm)."
     ],
-    correctAnswer: 0
+    correctAnswer: 1
   },
   {
     id: "calc-13",
@@ -117,7 +117,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. 4.75 in. {120 mm}.",
       "d. 5.50 in. {140 mm}."
     ],
-    correctAnswer: 3
+    correctAnswer: 2
   },
   {
     id: "calc-14",
@@ -139,19 +139,19 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. 0.985 in. (25.0 mm).",
       "d. 1.045 in. (26.2 mm)."
     ],
-    correctAnswer: 2
+    correctAnswer: 3
   },
   {
     id: "calc-16",
     text: "A piping system constructed of A-106 Gr B pipe and A-350 LF 2 CLASS 1 fittings is designed 325 psig (2.24 MPa) at 750°F (400°C). At what pressure should the system be tested if 70°F (20°C) condensate is used as the test medium?",
     options: ["a. 325 psig.", "b. 339 psig.", "c. 658 psig.", "d. 701 psig."],
-    correctAnswer: 3
+    correctAnswer: 2
   },
   {
     id: "calc-17",
     text: "What is the maximum pressure rating for a Class 150 flange that has a maximum design temperature of 400°F (200°C) (flange material is ASTM A 182 Gr F304)?",
     options: ["a. 190 psig.", "b. 200 psig.", "c. 230 psig.", "d. 275 psig."],
-    correctAnswer: 2
+    correctAnswer: 0
   },
   {
     id: "calc-18",
@@ -163,7 +163,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
     id: "calc-19",
     text: "A low reading of 0.200 in was found on an NPS 8 standard wall A-53 Gr B ERW pipe (E=0.85). If the line operates at 300°F (149°C), and the material allowable stress is 14,500 psi (99.97 MPa), what is the current maximum allowable working pressure?",
     options: ["a. 571 psig.", "b. 616 psig.", "c. 672 psig.", "d. 725 psig."],
-    correctAnswer: 1
+    correctAnswer: 0
   },
   {
     id: "calc-20",
@@ -174,7 +174,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. 8 years (visual).",
       "d. 10 years (thickness)."
     ],
-    correctAnswer: 3
+    correctAnswer: 0
   },
   {
     id: "calc-21",
@@ -197,13 +197,13 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. 150 to 300 µin.",
       "d. 250 to 500 µin."
     ],
-    correctAnswer: 3
+    correctAnswer: 1
   },
   {
     id: "calc-24",
     text: "An ASTM A-106 Gr. B (Maximum C = 30%), NPS 10 pipe with wall thickness of 1.125 inches or 28.6 mm must have a section replaced. What Minimum Preheat Temperature is required?",
     options: ["a. None.", "b. 50°F.", "c. 175°F.", "d. 200°F."],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: "calc-25",
@@ -220,13 +220,13 @@ export const API_570_CALC_FEB_2025: Question[] = [
     id: "calc-26",
     text: "An NPS 12 carbon steel standard pipe in Class 2 service, designed to operate at 450 psig and 500°F {260°C} with an allowable stress of 20 ksi, has a thickness at inspection of 0.280 inches (7.1 mm). What is the maximum interval for the next thickness measurement inspection (assume no RBI, E=1.0, Corr. rate= 25 mpy)?",
     options: ["a. 2.8 years.", "b. 5 years.", "c. 5.5 years.", "d. 10 years."],
-    correctAnswer: 1
+    correctAnswer: 0
   },
   {
     id: "calc-27",
     text: "Which of these MAWP values is correct for a piping system designed at 380 psig at 700°F. having A53 Gr. B seamless pipe, NPS= 18 inch. Latest UT= 0.28 inches, observed corrosion rate= 0.005 inches per year, and the next inspection is in 4 years?",
     options: ["a. 337 psig.", "b. 380 psig.", "c. 396 psig.", "d. 445 psig."],
-    correctAnswer: 1
+    correctAnswer: 3
   },
   {
     id: "calc-28",
@@ -259,13 +259,13 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. June 2019.",
       "d. January 2021."
     ],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: "calc-31",
     text: "A piping system has the following characteristics: Design pressure/temperature: 700 pig/300°F (4.83 MPa/150°C) Pipe description: NPS 10 (DN 250), A- 106 Gr B. Outside diameter of pipe, D: 10.75 in. (273 mm) Allowable stress: 20,000 psi (137.8 MPa) Longitudinal weld efficiency, E: 1.0. Thickness determined from inspection: 0.30 in. (7.62 mm) Observed corrosion rate: 0.02 in. (0.5 mm) per year. Next planed inspection: 5 years Given these data, what is the maximum allowable working pressure of this system?",
     options: ["a. 372 psig.", "b. 744 psig.", "c. 1,041psig.", "d. 1,116 psig."],
-    correctAnswer: 3
+    correctAnswer: 0
   },
   {
     id: "calc-32",
@@ -288,7 +288,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. 6 years and 5 years.",
       "d. none of the above."
     ],
-    correctAnswer: 1
+    correctAnswer: 0
   },
   {
     id: "calc-35",
@@ -305,7 +305,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. 6 years.",
       "d. Inspection is optional."
     ],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: "calc-37",
@@ -317,7 +317,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
     id: "calc-38",
     text: "The remaining life of anhydrous hydrogen chloride system (rapidly vaporizes on release) was found to be 11 yrs. When must next visual external inspection be scheduled for this piping system?",
     options: ["a. 3 years.", "b. 5 years.", "c. 6 years.", "d. 10 years."],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: "calc-39",
@@ -339,7 +339,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. MAWP = 511 psi.",
       "d. MAWP = 256 psi."
     ],
-    correctAnswer: 1
+    correctAnswer: 2
   },
   {
     id: "calc-41",
@@ -350,7 +350,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
       "c. 0.0051\"/year and 0.0048\" per year.",
       "d. 0.0025\"/year and 0.0048\" per year."
     ],
-    correctAnswer: 2
+    correctAnswer: 0
   },
   {
     id: "calc-42",
@@ -373,7 +373,7 @@ export const API_570_CALC_FEB_2025: Question[] = [
     id: "calc-44",
     text: "What is the minimum required distance between toes of fillet weld patches if pipe inside radius is 12 inches and pipe minimum required thickness is 0.150 inch, pipe actual thickness is 0.350 inch and patch minimum required thickness is 0.200 inch?",
     options: ["a. 6.19”", "b. 5.36”", "c. 8.19”", "d. 10.12”."],
-    correctAnswer: 2
+    correctAnswer: 0
   },
   {
     id: "calc-45",
