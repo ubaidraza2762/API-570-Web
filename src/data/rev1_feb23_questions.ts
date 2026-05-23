@@ -130,8 +130,8 @@ export const API_570_REV1_FEB_2023: Question[] = [
       "c. 90% of the SMYS.",
       "d. 75% of the ultimate tensile strength"
     ],
-    correctAnswer: 1,
-    hint: "2/3 of SMYS is a common limit for evaluation per API 570."
+    correctAnswer: 2,
+    hint: "90% of SMYS is a common limit for evaluation of thinned areas."
   },
   {
     id: "rev1-12",
@@ -202,8 +202,8 @@ export const API_570_REV1_FEB_2023: Question[] = [
       "c. Authorized inspector has discretion to follow either API570 or jurisdiction.",
       "d. Owner-user has responsibility for deciding course of action."
     ],
-    correctAnswer: 1,
-    hint: "Law always takes precedence."
+    correctAnswer: 0,
+    hint: "In this practice set, the more stringent API 570 requirements are prioritized."
   },
   {
     id: "rev1-18",
@@ -370,8 +370,8 @@ export const API_570_REV1_FEB_2023: Question[] = [
       "c. Support misalignment",
       "d. Expansion joint misalignment"
     ],
-    correctAnswer: 3,
-    hint: "Expansion joints are usually a separate category in thorough checklists."
+    correctAnswer: 2,
+    hint: "Support misalignment may be tracked separately from piping-specific misalignment."
   },
   {
     id: "rev1-32",
@@ -428,7 +428,7 @@ export const API_570_REV1_FEB_2023: Question[] = [
       "a. quenching",
       "b. Normalizing",
       "c. Annealing",
-      "d. Tempering"
+      "d. Normalizing"
     ],
     correctAnswer: 1,
     hint: "Still air cooling = Normalizing."
@@ -466,8 +466,8 @@ export const API_570_REV1_FEB_2023: Question[] = [
       "c. ASNT Level II guided wave ultrasonic examiners.",
       "d. ASNT Level II shear wave ultrasonic testing examiners."
     ],
-    correctAnswer: 3,
-    hint: "UT shear wave (angle beam) is standard for full weld volume examination."
+    correctAnswer: 1,
+    hint: "Angle beam examiners are specified for closure weld assessment."
   },
   {
     id: "rev1-40",

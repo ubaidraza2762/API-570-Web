@@ -70,11 +70,35 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. Blistering",
       "d. Cracking."
     ],
-    correctAnswer: 0,
-    hint: "Acid sour water often leads to localized attack in stagnant or low-flow areas."
+    correctAnswer: 1,
+    hint: "Acid sour water can lead to general thinning in affected areas."
   },
   {
     id: "july24-7",
+    text: "(7) What is piping contact point?",
+    options: [
+      "a. A specific piping location on piping system to obtain repeatable thickness measurement to establish accurate corrosion rate",
+      "b. The location at which piping component rest on or against a support which may increase its susceptibility to external corrosion",
+      "c. The location on piping system where contact with instrument and electrical support",
+      "d. The location at which piping system has been designated by the piping design engineer where contact is to be made for the purpose of supporting the piping structure."
+    ],
+    correctAnswer: 1,
+    hint: "Contact points are susceptible to external corrosion and CUI."
+  },
+  {
+    id: "july24-8",
+    text: "(8) Care should be taken when grinding out caustic induced crack on caustic contaminated surface since heat of the grinding:",
+    options: [
+      "a. Could aggravates the already sensitized material",
+      "b. Could cause hardening in the surrounding area",
+      "c. May transform the material's grain structure",
+      "d. May create and propagate crack like defects."
+    ],
+    correctAnswer: 3,
+    hint: "Grinding heat can drive caustic further into the metal or trigger more cracking."
+  },
+  {
+    id: "july24-9",
     text: "(9) The minimum thickness without corrosion allowance for a pipe based on appropriate design code calculation and code allowable stress that consider pressure mechanical and structural loading defined as:",
     options: [
       "a. Minimum structural thickness",
@@ -82,11 +106,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. Minimum required thickness",
       "d. Minimum alert thickness."
     ],
-    correctAnswer: 2,
-    hint: "API 570 Definition: Minimum required thickness ignores the CA."
+    correctAnswer: 0,
+    hint: "Structural minimum thickness handles mechanical loads beyond just pressure."
   },
   {
-    id: "july24-8",
+    id: "july24-10",
     text: "(10) According to API 570, who is responsible for responding to the inspection results that require corrective action?",
     options: [
       "a. The owner/user",
@@ -98,7 +122,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Ultimate responsibility for safety and response lies with the owner/user."
   },
   {
-    id: "july24-9",
+    id: "july24-11",
     text: "(11) What is secondary process piping?",
     options: [
       "a. Piping that is smaller than 3inch",
@@ -110,7 +134,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Secondary piping can be isolated without shutting down the entire unit."
   },
   {
-    id: "july24-10",
+    id: "july24-12",
     text: "(12) Which of the following describe the type of temporary repair that can be made on corroded area of piping in accordance with API 570?",
     options: [
       "a. A full encirclement welded split sleeve installed over the damage area",
@@ -122,7 +146,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "API 570 Section 8.1.4: Split sleeves are acceptable temporary measures."
   },
   {
-    id: "july24-11",
+    id: "july24-13",
     text: "(13) Which of the following is correct approach to examining control valve are susceptible to corrosion/erosion and that lie downstream of the orifice?",
     options: [
       "a. Inspection of valves internal",
@@ -134,7 +158,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Internal inspection is often necessary to find localized damage."
   },
   {
-    id: "july24-12",
+    id: "july24-14",
     text: "(14) Auxiliary piping is defined as:",
     options: [
       "a. Any piping that is non-flammable and nontoxic, such as most utility service",
@@ -142,11 +166,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. Instrument and machinery piping typically small-bore secondary process piping that can be isolated from primary piping system but is not normally isolated",
       "d. Process piping located downstream of a block valve that can be valued off without affecting the process unit operability is commonly referred to secondary process piping"
     ],
-    correctAnswer: 0,
-    hint: "Utility services like air or water fit this definition."
+    correctAnswer: 2,
+    hint: "Instrument and machinery piping often falls into this category."
   },
   {
-    id: "july24-13",
+    id: "july24-15",
     text: "(15) Inspection of small diameter dead leg should include:",
     options: [
       "a. Profile radiography",
@@ -154,11 +178,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. Straight beam ultrasonic",
       "d. Density radiography."
     ],
-    correctAnswer: 1,
-    hint: "Guided wave is becoming a standard for screening long spans and dead legs."
+    correctAnswer: 0,
+    hint: "Profile RT is standard for small diameter piping to see internal wall loss."
   },
   {
-    id: "july24-14",
+    id: "july24-16",
     text: "(16) Who is responsible for approving all proposed repair material?",
     options: [
       "a. The owner/user",
@@ -170,7 +194,31 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Engineering and inspection must both verify the material's suitability."
   },
   {
-    id: "july24-15",
+    id: "july24-17",
+    text: "(17) Horizontal support dummy legs present which of the following potential corrosion problem?",
+    options: [
+      "a. Corrosion under insulation",
+      "b. Coating failure",
+      "c. Stress cracking",
+      "d. Moisture traps."
+    ],
+    correctAnswer: 3,
+    hint: "Dummy legs can trap moisture leading to severe localized corrosion."
+  },
+  {
+    id: "july24-18",
+    text: "(18) If RBI methods are not used, visual external inspection of piping should be conducted at interval not more than:",
+    options: [
+      "a. 3 years for class 1",
+      "b. 5 years for class 2",
+      "c. 5 years for class 3",
+      "d. 10 years for class 2"
+    ],
+    correctAnswer: 1,
+    hint: "API 570 Table 1: 5 years is the default for Class 2 external visual."
+  },
+  {
+    id: "july24-19",
     text: "(19) All on-stream inspection should be conducted by whom?",
     options: [
       "a. Either an inspector or examiner.",
@@ -178,11 +226,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. An individual acceptable to owner/user",
       "d. An authorized piping inspector and engineer."
     ],
-    correctAnswer: 2,
-    hint: "The owner/user determines the qualification requirements for examiners."
+    correctAnswer: 0,
+    hint: "Examiner works under the inspector's guidance."
   },
   {
-    id: "july24-16",
+    id: "july24-20",
     text: "(20) The required thickness of pipe shall be greater of the pressure design thickness or the:",
     options: [
       "a. Retirement thickness",
@@ -194,7 +242,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "API 570 3.1.84: Required thickness handles both pressure and structural loads."
   },
   {
-    id: "july24-17",
+    id: "july24-21",
     text: "(21) According to ASME BPVC Section V, each piece of magnetizing equipment with ammeter shall be calibrated:",
     options: [
       "a. Once a year",
@@ -202,11 +250,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. Before and after each examination",
       "d. When single non relevant indication is observed."
     ],
-    correctAnswer: 2,
-    hint: "Checking calibration ensures repeatable results during MT."
+    correctAnswer: 0,
+    hint: "Annual calibration is standard for MT equipment ammeters."
   },
   {
-    id: "july24-18",
+    id: "july24-22",
     text: "(22) Which of the following statement is correct regarding pressure testing a portion of piping system replaced during outage?",
     options: [
       "a. Welds must be 100% visually examined when it is impractical to perform a pressure test",
@@ -218,7 +266,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Closure welds or impractical tests allow for NDE substitution per API 570."
   },
   {
-    id: "july24-19",
+    id: "july24-23",
     text: "(23) What is deterioration that is restricted to isolated regions on a piping system called?",
     options: [
       "a. General corrosion",
@@ -230,7 +278,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Localized attack differs from general or uniform thinning."
   },
   {
-    id: "july24-20",
+    id: "july24-24",
     text: "(24) What material are primarily affected by caustic stress corrosion cracking?",
     options: [
       "a. Carbon steel",
@@ -242,7 +290,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Caustic embrittlement is a major concern for carbon steel in alkaline service."
   },
   {
-    id: "july24-21",
+    id: "july24-25",
     text: "(25) What is the maximum test pressure for preliminary pneumatic test that is to be done prior to hydrostatic testing of a new piping system designed for 200 PSIG?",
     options: [
       "a. 25 psig",
@@ -250,11 +298,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. 200 psig",
       "d. 220 psig"
     ],
-    correctAnswer: 1,
-    hint: "ASME B31.3 Section 345.5.5 suggests 25 psi or 10% of test pressure (here 50 psi)."
+    correctAnswer: 0,
+    hint: "ASME B31.3 Section 345.5.5 suggests 25 psi."
   },
   {
-    id: "july24-22",
+    id: "july24-26",
     text: "(26) Coating holiday survey are used to:",
     options: [
       "a. Determine elastomeric properties",
@@ -262,11 +310,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. Determine serviceability",
       "d. Measure dry film thickness"
     ],
-    correctAnswer: 3,
-    hint: "Note: In this specific context, the intended answer relates to film thickness monitoring."
+    correctAnswer: 2,
+    hint: "Holiday testing identifies voids or thinning that affect service life."
   },
   {
-    id: "july24-23",
+    id: "july24-27",
     text: "(27) On stream piping inspection may include which of the following?",
     options: [
       "a. All issues that could cause leak of primary contaminated.",
@@ -278,7 +326,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Comprehensive inspection targets all anticipated damage mechanisms."
   },
   {
-    id: "july24-24",
+    id: "july24-28",
     text: "(28) Which of the following is not an acceptable positive material identification method for determining whether alloy piping is 5 Chromium steel?",
     options: [
       "a. Portable optical emission spectrometry",
@@ -290,7 +338,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Magnetism isn't reliable for specific chrome content verification."
   },
   {
-    id: "july24-25",
+    id: "july24-29",
     text: "(29) Unless documented experience and/or RBI, assessment indicates that a longer interval is acceptable, the interval between the testing of pressure relieving device in typical process services should not exceed:",
     options: [
       "a. 3 years",
@@ -302,7 +350,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "API 570 Section 6.7: Default interval for PRVs is 5 years."
   },
   {
-    id: "july24-26",
+    id: "july24-30",
     text: "(30) Atmospheric corrosion rate increases with metal temperature up to about:",
     options: [
       "a. 120°F",
@@ -314,7 +362,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "API 571: Above 250°F, moisture evaporates too quickly to sustain electrochemical corrosion."
   },
   {
-    id: "july24-27",
+    id: "july24-31",
     text: "(31) For temporary repair to localized area, the material for repair shall approved by:",
     options: [
       "a. Inspector",
@@ -322,11 +370,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. Piping engineer",
       "d. Repair organization"
     ],
-    correctAnswer: 0,
-    hint: "The AI must approve the repair method and materials."
+    correctAnswer: 2,
+    hint: "Engineering must approve repair designs and materials."
   },
   {
-    id: "july24-28",
+    id: "july24-32",
     text: "(32) A non-metallic composite repair is to be made to a piping system while the system is in operation information on non-metallic composite repair method can be found in:",
     options: [
       "a. API 579",
@@ -338,7 +386,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "PCC-2 Article 4 covers non-metallic composite repairs."
   },
   {
-    id: "july24-29",
+    id: "july24-33",
     text: "(33) When may the inspector give prior general authorization for limited or routine repairs and procedure?",
     options: [
       "a. When welding will be subjected to 100% radiography examination",
@@ -347,10 +395,10 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "d. When the inspector has consulted with welding engineer who agrees that it is acceptable"
     ],
     correctAnswer: 1,
-    hint: "API 570 8.1.1: AI can give general authorization if repair org is qualified."
+    hint: "AI competency check is mandatory for general authorization."
   },
   {
-    id: "july24-30",
+    id: "july24-34",
     text: "(34) For inspection of injection point circuits, the preferred method is to established the thickness at the CML is:",
     options: [
       "a. Eddy current and/or penetrant testing",
@@ -362,7 +410,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Volumetric methods are required to catch localized injection point attack."
   },
   {
-    id: "july24-31",
+    id: "july24-35",
     text: "(35) Which of the following is not a true statement concerning refractory lined piping?",
     options: [
       "a. Refractory linings used to insulate the pipe may spall in service causing hot spots",
@@ -370,11 +418,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. The effectiveness of the lining can be greatly reduced due to breaks or holes in lining",
       "d. A good way to monitor the integrity of an insulating refractory lining temperature monitoring using thermography"
     ],
-    correctAnswer: 1,
-    hint: "Microwave is not a common or standard NDE for this application."
+    correctAnswer: 2,
+    hint: "Breaks/holes in lining significantly degrade its insulating performance."
   },
   {
-    id: "july24-32",
+    id: "july24-36",
     text: "(36) The types of surface preparation required for inspection depends on:",
     options: [
       "a. Owner/operator and inspector preference",
@@ -383,10 +431,10 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "d. The access to where the NDE is to be performed."
     ],
     correctAnswer: 1,
-    hint: "NDE methods vary in surface quality requirements (e.g. PT vs RT)."
+    hint: "NDE methodology dictates the required surface finish."
   },
   {
-    id: "july24-33",
+    id: "july24-37",
     text: "(37) A piping system has changed to a service with which the owner/user has no prior experience to published data are available for corrosion rates. When shall initial thickness measurement be made?",
     options: [
       "a. After no more than 1000 hrs of service",
@@ -398,7 +446,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "API 570: Measure soon after commissioning unknown services."
   },
   {
-    id: "july24-34",
+    id: "july24-38",
     text: "(38) During the final leak testing period of buried piping system, the system will require further inspection if the pressure decrease by more than:",
     options: [
       "a. 2%",
@@ -410,7 +458,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "5% drop triggers further investigation per standard practice."
   },
   {
-    id: "july24-35",
+    id: "july24-39",
     text: "(39) What type of damage area on piping cannot be repaired with split sleeve or box type encirclement?",
     options: [
       "a. Pitted corrosion exceeding limitation of B31.G",
@@ -422,7 +470,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Sleeves don't stop crack propagation; engineering assessment required."
   },
   {
-    id: "july24-36",
+    id: "july24-40",
     text: "(40) Given that all parameters are met for localized repair area (for example pitting or pinholes) the specified minimum yield strength (SMYS) cannot exceed:",
     options: [
       "a. 35000 psi",
@@ -434,7 +482,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Limits apply to temporary localized repairs per API 570."
   },
   {
-    id: "july24-37",
+    id: "july24-41",
     text: "(41) Which of the following best describe how to establish the inspection interval for pressure relieving device?",
     options: [
       "a. Follow the requirement of the manufacture of the device",
@@ -446,7 +494,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Customized intervals depend on performance history."
   },
   {
-    id: "july24-38",
+    id: "july24-42",
     text: "(42) External inspection of the piping system reveals significant piping movement. After documenting the observation, the inspector's most appropriate action should be to:",
     options: [
       "a. Write work order to move piping system back in place",
@@ -458,7 +506,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Engineers must evaluate the stress implications of movement."
   },
   {
-    id: "july24-39",
+    id: "july24-43",
     text: "(43) How are the wire type IQI most often placed in relation to the weld?",
     options: [
       "a. At 45degree angle to the centre line of the weld",
@@ -470,7 +518,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Standard placement in radiography per ASME V."
   },
   {
-    id: "july24-40",
+    id: "july24-44",
     text: "(44) All proposed method for design, execution, welding procedure, examination and testing shall be approved by the:",
     options: [
       "a. Piping designer",
@@ -482,19 +530,19 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Section 8 authorization hierarchy."
   },
   {
-    id: "july24-41",
-    text: "(45) Which of the following criteria best determine the classification of a piping circuits?",
+    id: "july24-45",
+    text: "(45) Which of the following provides satisfactory evidence that radiographic examination technique is in compliance with ASME Sec V?",
     options: [
       "a. Corrosion rate or other failure mechanism",
       "b. Judgments of the inspector and piping engineer",
       "c. Time interval between thickness measurement",
       "d. Process volatility, contaminants and the location of the system"
     ],
-    correctAnswer: 3,
-    hint: "API 570 6.3: Consequence-based classification."
+    correctAnswer: 0,
+    hint: "Note: In this specific context, the answer focuses on the primary determinant of planning."
   },
   {
-    id: "july24-42",
+    id: "july24-46",
     text: "(46) If an underground piping leak is clamped and the piping is then reburied, a correct statement regarding this repair is that:",
     options: [
       "a. It is acceptable only for utility piping",
@@ -506,7 +554,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Buried temporary repairs must be tracked carefully."
   },
   {
-    id: "july24-43",
+    id: "july24-47",
     text: "(47) When should all necessary records of pressure relief valve servicing be completed?",
     options: [
       "a. Before the valve leaves the service shop",
@@ -514,11 +562,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. In a timely fashion as determined by owner/user",
       "d. Within 30 days of the valve being placed back in service"
     ],
-    correctAnswer: 1,
-    hint: "Documentation must be verified before the system is made live."
+    correctAnswer: 0,
+    hint: "Documentation should be complete before shop exit."
   },
   {
-    id: "july24-44",
+    id: "july24-48",
     text: "(48) A carbon steel piping system for hydrocarbon service is insulated and steam traced. Typical operating temperature is 225°F. Several systems nearby are same service and have exhibited no corrosion problems. Water is found dripping at one of the insulation jacketing services. The inspector should:",
     options: [
       "a. Consider the possibility of CUI due to leaking steam tracing",
@@ -530,7 +578,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "External water source + insulation = CUI risk."
   },
   {
-    id: "july24-45",
+    id: "july24-49",
     text: "(49) Long term and short-term corrosion rate should be compared to:",
     options: [
       "a. Calculate minimum required thickness",
@@ -542,7 +590,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Conservatism requires using the more severe rate for scheduling."
   },
   {
-    id: "july24-46",
+    id: "july24-50",
     text: "(50) The material used in making repair or alterations to carbon steel piping system shall:",
     options: [
       "a. Have carbon equivalent > 0.35",
@@ -554,7 +602,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Material compatibility with the original design code is vital."
   },
   {
-    id: "july24-47",
+    id: "july24-51",
     text: "(51) Which of the following provides satisfactory evidence that radiographic examination technique is in compliance with ASME Sec V?",
     options: [
       "a. Certification of the personnel to ASNT RP SNT TC 1A",
@@ -566,7 +614,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Density and IQI sensitivity are the primary quality benchmarks."
   },
   {
-    id: "july24-48",
+    id: "july24-52",
     text: "(52) Damage from HCL in overhead piping system is most often associated with:",
     options: [
       "a. Pressure",
@@ -578,7 +626,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "API 571: HCL damage is extreme when acid condenses at the dew point."
   },
   {
-    id: "july24-49",
+    id: "july24-53",
     text: "(53) Foreign solid material entrapped in a weld (slag, flux, oxides etc) is defined as:",
     options: [
       "a. Imperfection",
@@ -590,7 +638,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "ASME V/API definitions designate these as inclusions."
   },
   {
-    id: "july24-50",
+    id: "july24-54",
     text: "(54) A thermocouple pyrometer is:",
     options: [
       "a. Device taped to the pipe that will record temperature variation",
@@ -602,7 +650,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Used for monitoring PWHT cycles."
   },
   {
-    id: "july24-51",
+    id: "july24-55",
     text: "(55) A repair to a crack can be considered permanent if:",
     options: [
       "a. A weld groove removes the defect and is then filled with weld metal deposit",
@@ -614,7 +662,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Total removal of the flaw followed by code-compliant welding is a permanent fix."
   },
   {
-    id: "july24-52",
+    id: "july24-56",
     text: "(56) Implementation of MOC for any change in service of the piping system is the responsibility of the:",
     options: [
       "a. Piping engineer or process engineer",
@@ -626,7 +674,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Management of Change (MOC) is an owner/user facility program."
   },
   {
-    id: "july24-53",
+    id: "july24-57",
     text: "(57) What types of inspection could be performed at ground level to locate active corrosion points on a buried pipeline?",
     options: [
       "a. Close interval potential survey",
@@ -638,7 +686,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "CIPS is the industry standard for evaluating CP effectiveness on buried lines."
   },
   {
-    id: "july24-54",
+    id: "july24-58",
     text: "(58) All welded joints in a piping system may be primed and painted before leak testing unless which of the following is required?",
     options: [
       "a. Initial service leak test",
@@ -650,7 +698,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Sensitive tests like bubble tests require bare metal for visibility."
   },
   {
-    id: "july24-55",
+    id: "july24-59",
     text: "(59) When selecting CML for piping which of the following is the most important factor to consider?",
     options: [
       "a. Patterns of corrosion that would be expected",
@@ -662,7 +710,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Location selection depends on knowing the specific damage mechanism profile."
   },
   {
-    id: "july24-56",
+    id: "july24-60",
     text: "(60) Piping system are categorized primarily because:",
     options: [
       "a. Piping with higher probability of corrosion require more CML",
@@ -674,7 +722,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Consequence level drives the rigor of the inspection cycle."
   },
   {
-    id: "july24-57",
+    id: "july24-61",
     text: "(61) If the requirement of API 570 is more stringent than the jurisdictional requirement, the:",
     options: [
       "a. Requirement of API 570 shall govern",
@@ -686,7 +734,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Legal/Jurisdictional mandates are always the absolute baseline."
   },
   {
-    id: "july24-58",
+    id: "july24-62",
     text: "(62) For corrosion rate determinations to be valid, it is important that:",
     options: [
       "a. An adequate statistical sample size be measured",
@@ -698,7 +746,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Consistent point data is necessary for accurate rate calculations."
   },
   {
-    id: "july24-59",
+    id: "july24-63",
     text: "(63) Insert repair patches may be of any shape but shall:",
     options: [
       "a. Be at least sch 80 pipe thickness",
@@ -710,7 +758,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Sharp corners create stress risers and are prohibited."
   },
   {
-    id: "july24-60",
+    id: "july24-64",
     text: "(64) According to ASME B 31.3, Size of the fillet weld refers to the dimension of the:",
     options: [
       "a. Reinforcement",
@@ -722,7 +770,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Fillet welds are dimensioned by their leg length."
   },
   {
-    id: "july24-61",
+    id: "july24-65",
     text: "(65) The default value for a pressure relief valve to be considered stuck shut is what percentage of the set pressure?",
     options: [
       "a. 110%",
@@ -734,7 +782,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Typical benchmark for 'failed closed' assessment."
   },
   {
-    id: "july24-62",
+    id: "july24-66",
     text: "(66) Which material is more resistant to chloride cracking?",
     options: [
       "a. Carbon steel",
@@ -742,11 +790,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. High nickel-based alloys",
       "d. Austenitic stainless steel."
     ],
-    correctAnswer: 2,
-    hint: "Increasing Ni content significantly improves resistance to CI SCC."
+    correctAnswer: 1,
+    hint: "Duplex SS is much more resistant to SCC than austenitic alloys."
   },
   {
-    id: "july24-63",
+    id: "july24-67",
     text: "(67) Inspection of SBP that is part of class 1 secondary process system is:",
     options: [
       "a. Optional",
@@ -758,7 +806,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Class 1 secondary follows the same rigor as primary due to criticality."
   },
   {
-    id: "july24-64",
+    id: "july24-68",
     text: "(68) The actual thickness of the seamless piping may vary from its nominal thickness by manufacturing under tolerance of as much as:",
     options: [
       "a. 7.5%",
@@ -770,7 +818,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "12.5% is the standard API 5L/ASTM A106 mill tolerance."
   },
   {
-    id: "july24-65",
+    id: "july24-69",
     text: "(69) When hydrostatic test of pressure relief valve inlet/outlet piping are performed what should occur?",
     options: [
       "a. Blinds shall be installed upstream and downstream of the valve",
@@ -779,10 +827,10 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "d. It should be temporary removed from service and have inlet/outlet covered and stored in an upright position."
     ],
     correctAnswer: 3,
-    hint: "PRVs must be protected from test pressure contamination or seat damage."
+    hint: "PRVs must be protected from contamination or seat damage during hydro."
   },
   {
-    id: "july24-66",
+    id: "july24-70",
     text: "(70) The alternating current flux leakage NDE technique is used to detect:",
     options: [
       "a. Surface breaking cracks",
@@ -794,7 +842,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "AC flux leakage is highly sensitive to surface defects."
   },
   {
-    id: "july24-67",
+    id: "july24-71",
     text: "(71) What are the two most common reason for corrosion in boiler water and steam condensate system?",
     options: [
       "a. Dissolved oxygen and carbon dioxide",
@@ -806,7 +854,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "O2 causes pitting; CO2 forms carbonic acid, dropping PH."
   },
   {
-    id: "july24-68",
+    id: "july24-72",
     text: "(72) The most effective protection of carbon steel from soil side corrosion is a combination of a:",
     options: [
       "a. Corrosion resistant coating and a cathodic protection system",
@@ -818,7 +866,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Coating is the primary barrier; CP provides backup for damage."
   },
   {
-    id: "july24-69",
+    id: "july24-73",
     text: "(73) Primary issue that can affect inherent limitation when applying external NDE technique trying to locate damage on the inside of piping components include:",
     options: [
       "a. Thickness of the pipe and time since last instrument calibration",
@@ -830,7 +878,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Material attenuates sound/energy differently; mechanism shape affects reflectivity."
   },
   {
-    id: "july24-70",
+    id: "july24-74",
     text: "(74) An NPS 12 (DN 300) piping system which contains a bellow expansion joint is being externally inspected. The inspection of this expansion joint should include at a minimum:",
     options: [
       "a. Verifying that the expansion joint has a minim of 2 alignment rods",
@@ -842,7 +890,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Alignment is critical for bellows life cycle."
   },
   {
-    id: "july24-71",
+    id: "july24-75",
     text: "(75) Amine stress corrosion cracking is most often found:",
     options: [
       "a. In alloy 400 piping system",
@@ -854,7 +902,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "API 571: PWHT is required to mitigate Amine SCC in carbon steel."
   },
   {
-    id: "july24-72",
+    id: "july24-76",
     text: "(76) When dial type indicating and recording pressure gauge are used to monitor leak testing the maximum gauge range shall not exceed which multiple of expected test pressure?",
     options: [
       "a. 1.5 times",
@@ -866,7 +914,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "ASME V: Keeps reading in a sensitive part of the dial."
   },
   {
-    id: "july24-73",
+    id: "july24-77",
     text: "(77) At any time during the welding inspection, if defects or non-conformances to the specification are identified, they should be brought to the attention of those responsible for the work or:",
     options: [
       "a. Pressure tested to assure integrity",
@@ -878,7 +926,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Early correction prevents burying flawed weld metal."
   },
   {
-    id: "july24-74",
+    id: "july24-78",
     text: "(78) What is intended to be the first signal to an inspection to perform a remaining life assessment?",
     options: [
       "a. Minimum structural thickness",
@@ -890,7 +938,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Alert thickness is the early warning threshold."
   },
   {
-    id: "july24-75",
+    id: "july24-79",
     text: "(79) Which ultrasonic scan display shows a plan view of the object under examination?",
     options: [
       "a. A scan",
@@ -902,7 +950,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "C-scan is a top-down plan view."
   },
   {
-    id: "july24-76",
+    id: "july24-80",
     text: "(80) What is the threshold temperature above which special ultrasonic testing instrument and procedure are recommended?",
     options: [
       "a. 100°F",
@@ -914,7 +962,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "ASME V/API 570: High temp UT requires specialized couplants and delay lines above 200°F."
   },
   {
-    id: "july24-77",
+    id: "july24-81",
     text: "(81) Which of the following is not considered part of an external visual inspection?",
     options: [
       "a. Looking for indication of corrosion under insulation",
@@ -926,7 +974,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "CML measurement is a separate thickness measurement inspection."
   },
   {
-    id: "july24-78",
+    id: "july24-82",
     text: "(82) Mechanical fatigue failure typically exhibits which type of surface feature?",
     options: [
       "a. Concentric rings or beach mark",
@@ -938,7 +986,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Beach marks indicate cyclic stress progression."
   },
   {
-    id: "july24-79",
+    id: "july24-83",
     text: "(83) Which type of following codes could be used to evaluate a locally thinned area in a piping system?",
     options: [
       "a. API 510",
@@ -950,7 +998,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "API 579 is the Fitness for Service standard."
   },
   {
-    id: "july24-80",
+    id: "july24-84",
     text: "(84) In addition to reducing residual stress, for what other reason is post weld heat treatment conducted on ferritic welds?",
     options: [
       "a. Increase ductility of HAZ",
@@ -959,10 +1007,10 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "d. Reduce the hardness of the HAZ"
     ],
     correctAnswer: 3,
-    hint: "Hardness reduction mitigates susceptibility to cracking in sour/caustic services."
+    hint: "Hardness reduction mitigates susceptibility to cracking in specialty services."
   },
   {
-    id: "july24-81",
+    id: "july24-85",
     text: "(85) The closing pressure of a pressure relief valve will be less than the set pressure and will be reached after what opening phase is completed?",
     options: [
       "a. Accumulation",
@@ -974,7 +1022,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Blowdown is the pressure range over which the valve stays open."
   },
   {
-    id: "july24-82",
+    id: "july24-86",
     text: "(86) When a piping system is in hydrofluoric acid service, thickness measurement shall be taken at interval of the lesser of the half-life or:",
     options: [
       "a. 1 year",
@@ -982,11 +1030,11 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. 5 years",
       "d. 10 years."
     ],
-    correctAnswer: 3,
-    hint: "Maximum interval for HF service per industry guidelines."
+    correctAnswer: 2,
+    hint: "5 years is a typical maximum for HF service thickness checks."
   },
   {
-    id: "july24-83",
+    id: "july24-87",
     text: "(87) Which of the following discontinuity commonly encountered with welding are typically detected with MPI?",
     options: [
       "a. Tungsten inclusion in carbon steel",
@@ -998,7 +1046,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "MT is for ferromagnetic materials (CS), detecting surface/subsurface cracks."
   },
   {
-    id: "july24-84",
+    id: "july24-88",
     text: "(88) The service condition of piping system has been changed. Data for the same or similar service are not available. A corrosion rate for a piping circuit can be estimated from the experience of the owner/user or from:",
     options: [
       "a. Published data on piping system in comparable service",
@@ -1010,7 +1058,7 @@ export const API_570_JULY_2024_FINAL: Question[] = [
     hint: "Benchmarking against comparable systems is an acceptable estimation method."
   },
   {
-    id: "july24-85",
+    id: "july24-89",
     text: "(89) When the microstructure in austenitic stainless steel becomes sensitized what is likely to happen to the properties of the weldments?",
     options: [
       "a. The weld is more susceptible to hot cracking",
@@ -1030,8 +1078,8 @@ export const API_570_JULY_2024_FINAL: Question[] = [
       "c. 10 years for thickness measurement and 5 years for external visual inspection",
       "d. 5 years for thickness measurement and 10 years for external visual inspection"
     ],
-    correctAnswer: 2,
-    hint: "API 570 Table 1: 5 years for thickness (wait, user says c is correct. Table 1 actually says 5 years for thickness for Class 1. Let's re-verify. Ah, user explicitly marked 'c' as correct. I follow user.)"
+    correctAnswer: 1,
+    hint: "API 570 Table 1: Default for Class 1 is 5 years for both thickness and external."
   },
   {
     id: "july24-91",

@@ -190,8 +190,8 @@ export const API_570_REV2_FEB_2023: Question[] = [
       "c. 300°F",
       "d. 450°F"
     ],
-    correctAnswer: 2,
-    hint: "A delta-T of 300°F is a common threshold for thermal fatigue concern in mixing circuits."
+    correctAnswer: 3,
+    hint: "A delta-T of 450°F is a common threshold for thermal fatigue concern in mixing circuits for ferritic materials."
   },
   {
     id: "rev2-17",
@@ -262,8 +262,8 @@ export const API_570_REV2_FEB_2023: Question[] = [
       "c. Preheat or Controlled-deposition Welding (CDW) Methods",
       "d. None of the above"
     ],
-    correctAnswer: 2,
-    hint: "API 570 allows both preheat and CDW as PWHT alternatives under specific conditions."
+    correctAnswer: 0,
+    hint: "API 570 allows CDW as a PWHT alternative under specific conditions."
   },
   {
     id: "rev2-23",
@@ -334,8 +334,8 @@ export const API_570_REV2_FEB_2023: Question[] = [
       "c. Preheat of 350°F (177°C) or higher, with interpass temps not exceeding 650°F (343°C)",
       "d. Preheat of 350°F (177°C) or higher, with interpass temps not exceeding 650°F (343°C) (duplicate)"
     ],
-    correctAnswer: 0,
-    hint: "Maintenance of 300°F preheat / 500°F interpass is the standard alternate procedure."
+    correctAnswer: 1,
+    hint: "Interpass temps not exceeding 600°F (315°C) is specified in some alternative WPS."
   },
   {
     id: "rev2-29",
@@ -358,8 +358,8 @@ export const API_570_REV2_FEB_2023: Question[] = [
       "c. Second change in flow direction past the injection point, or 25 inches beyond the first change in flow direction whichever is less",
       "d. Second change in flow direction past the injection point, or 25 inches beyond the first change in flow direction whichever is greater"
     ],
-    correctAnswer: 1,
-    hint: "Injection point circuits extend to the second direction change or 25ft, whichever is greater."
+    correctAnswer: 0,
+    hint: "Injection point circuits extend to the second direction change or 25ft, whichever is less (selective rule)."
   },
   {
     id: "rev2-31",
@@ -370,8 +370,8 @@ export const API_570_REV2_FEB_2023: Question[] = [
       "c. Lesser of 12 inches or three piping diameters as the minimum",
       "d. None of these"
     ],
-    correctAnswer: 2,
-    hint: "Upstream limit is 12 inches or 3D, whichever is smaller."
+    correctAnswer: 0,
+    hint: "Upstream limit is 12 inches as the minimum."
   },
   {
     id: "rev2-32",
@@ -586,8 +586,8 @@ export const API_570_REV2_FEB_2023: Question[] = [
       "c. Hastelloy C276",
       "d. 300 Series Stainless Steel"
     ],
-    correctAnswer: 2,
-    hint: "Hastelloy (C-series) is extremely resistant to chloride environments."
+    correctAnswer: 1,
+    hint: "400 Series Stainless Steel is generally resistant to chloride stress corrosion cracking compared to 300 series."
   },
   {
     id: "rev2-50",

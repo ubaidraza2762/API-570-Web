@@ -10,7 +10,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "Fibre reinforced plastics piping.",
       "Glass reinforced plastics piping."
     ],
-    correctAnswer: 0
+    correctAnswer: 1
   },
   {
     id: "imp-ob-set2-2",
@@ -21,7 +21,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "completely de-inventoried/ purged of hydrocarbon/chemicals.",
       "physically disconnected (e.g. air-gapped) from all energy sources and/or other piping/equipment."
     ],
-    correctAnswer: 3
+    correctAnswer: 0
   },
   {
     id: "imp-ob-set2-3",
@@ -32,7 +32,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "Alterations.",
       "Major repairs."
     ],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: "imp-ob-set2-4",
@@ -54,7 +54,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "15 years.",
       "7.5 years."
     ],
-    correctAnswer: 2
+    correctAnswer: 0
   },
   {
     id: "imp-ob-set2-6",
@@ -98,7 +98,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "Laser-induced breakdown spectroscopy.",
       "Silica draft detectors."
     ],
-    correctAnswer: 0
+    correctAnswer: 2
   },
   {
     id: "imp-ob-set2-10",
@@ -109,7 +109,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "API 581.",
       "API 580."
     ],
-    correctAnswer: 3
+    correctAnswer: 2
   },
   {
     id: "imp-ob-set2-11",
@@ -197,7 +197,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "valve wall thickness.",
       "flange bolt tightness."
     ],
-    correctAnswer: 0
+    correctAnswer: 3
   },
   {
     id: "imp-ob-set2-19",
@@ -219,7 +219,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "Pulsed Eddy Current Testing.",
       "Guided Wave Ultrasonics."
     ],
-    correctAnswer: 2
+    correctAnswer: 0
   },
   {
     id: "imp-ob-set2-21",
@@ -296,7 +296,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "Authorized Piping Inspector.",
       "Authorized Inspection Agency."
     ],
-    correctAnswer: 2
+    correctAnswer: 0
   },
   {
     id: "imp-ob-set2-28",
@@ -351,7 +351,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "can be accurately determined by inspection.",
       "can be arrested by careful inspection."
     ],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: "imp-ob-set2-33",
@@ -384,7 +384,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "Class 3",
       "Class 4."
     ],
-    correctAnswer: 1
+    correctAnswer: 2
   },
   {
     id: "imp-ob-set2-36",
@@ -395,7 +395,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "17,300 psi.",
       "16.7 ksi."
     ],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: "imp-ob-set2-37",
@@ -406,7 +406,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "660 psi.",
       "400 psi."
     ],
-    correctAnswer: 2
+    correctAnswer: 0
   },
   {
     id: "imp-ob-set2-38",
@@ -417,7 +417,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "525 psi.",
       "350 psi."
     ],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: "imp-ob-set2-39",
@@ -428,7 +428,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "250 psi.",
       "363 psi."
     ],
-    correctAnswer: 3
+    correctAnswer: 1
   },
   {
     id: "imp-ob-set2-40",
@@ -450,7 +450,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "1/32\" and 1/8\".",
       "1/32\" and 1/16\"."
     ],
-    correctAnswer: 3
+    correctAnswer: 1
   },
   {
     id: "imp-ob-set2-42",
@@ -494,7 +494,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "0.700\"",
       "0.532\"."
     ],
-    correctAnswer: 3
+    correctAnswer: 1
   },
   {
     id: "imp-ob-set2-46",
@@ -505,7 +505,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "0.2130\"",
       "0.1962\"."
     ],
-    correctAnswer: 3
+    correctAnswer: 2
   },
   {
     id: "imp-ob-set2-47",
@@ -516,7 +516,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "15 year",
       "20 year."
     ],
-    correctAnswer: 2
+    correctAnswer: 0
   },
   {
     id: "imp-ob-set2-48",
@@ -582,7 +582,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "Can remain in place for a longer time only if approved by a piping engineer.",
       "Shall be removed in the next maintenance opportunity."
     ],
-    correctAnswer: 0
+    correctAnswer: 1
   },
   {
     id: "imp-ob-set2-54",
@@ -648,7 +648,7 @@ export const API_570_IMP_OB_SET2: Question[] = [
       "400 series stainless steel.",
       "Duplex stainless steels."
     ],
-    correctAnswer: 3
+    correctAnswer: 1
   },
   {
     id: "imp-ob-set2-60",

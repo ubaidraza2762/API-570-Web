@@ -56,7 +56,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
     { name: "Incorrect", value: incorrectCount, color: "#EF4444" },
     { name: "Skipped", value: unattemptedCount, color: "#94A3B8" }
   ];
-  const isPassed = lastResult.score >= 70;
+  const isPassed = lastResult.score >= 90;
 
   const formatTime = (seconds?: number) => {
     if (seconds === undefined) return "N/A";

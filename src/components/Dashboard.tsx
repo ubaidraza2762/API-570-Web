@@ -110,21 +110,21 @@ export const Dashboard: React.FC<DashboardProps> = ({ exams, attempts, onViewMan
                       <td className="px-8 py-5 text-center">
                         <span className={cn(
                           "px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border",
-                          a.score >= 70 ? "bg-green-500/10 text-green-600 border-green-200" : "bg-red-500/10 text-red-600 border-red-200"
+                          a.score >= 90 ? "bg-green-500/10 text-green-600 border-green-200" : "bg-red-500/10 text-red-600 border-red-200"
                         )}>
-                          {a.score >= 70 ? "Pass" : "Fail"}
+                          {a.score >= 90 ? "Pass" : "Fail"}
                         </span>
                       </td>
                       <td className="px-8 py-5">
                         <div className="flex items-center justify-end gap-6">
-                          <div className={cn("text-xl font-bold tracking-tight", a.score >= 70 ? "text-text-primary" : "text-red-500")}>
+                          <div className={cn("text-xl font-bold tracking-tight", a.score >= 90 ? "text-text-primary" : "text-red-500")}>
                             {a.score}%
                           </div>
                           <div className="w-2 h-10 bg-bg rounded-full relative overflow-hidden flex items-end">
                             <motion.div 
                               initial={{ height: 0 }}
                               animate={{ height: `${a.score}%` }}
-                              className={cn("w-full transition-colors", a.score >= 70 ? "bg-accent" : "bg-red-500")} 
+                              className={cn("w-full transition-colors", a.score >= 90 ? "bg-accent" : "bg-red-500")} 
                             />
                           </div>
                         </div>
