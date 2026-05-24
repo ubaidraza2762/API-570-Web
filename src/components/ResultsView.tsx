@@ -41,7 +41,16 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
       } else if (q.type === "matching") {
         const pairs = q.matchingPairs || [];
         const userMapping = userAns as Record<number, number>;
-        isCorrect = Object.keys(userMapping).length === pairs.length && Object.keys(userMapping).every(k => userMapping[parseInt(k)] === parseInt(k));
+        const userMatches = Object.entries(userMapping);
+        if (userMatches.length === pairs.length) {
+          const expectedSet = pairs.map(p => `${p.left.trim()}|||${p.right.trim()}`).sort();
+          const userSet = userMatches.map(([lIdx, rIdx]) => {
+            const leftText = pairs[parseInt(lIdx)].left;
+            const rightText = pairs[rIdx].right;
+            return `${leftText.trim()}|||${rightText.trim()}`;
+          }).sort();
+          isCorrect = JSON.stringify(expectedSet) === JSON.stringify(userSet);
+        }
       } else {
         isCorrect = userAns === q.correctAnswer;
       }
@@ -164,7 +173,16 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                 } else if (q.type === "matching") {
                   const pairs = q.matchingPairs || [];
                   const userMapping = userAns as Record<number, number>;
-                  isCorrect = Object.keys(userMapping).length === pairs.length && Object.keys(userMapping).every(k => userMapping[parseInt(k)] === parseInt(k));
+                  const userMatches = Object.entries(userMapping);
+                  if (userMatches.length === pairs.length) {
+                    const expectedSet = pairs.map(p => `${p.left.trim()}|||${p.right.trim()}`).sort();
+                    const userSet = userMatches.map(([lIdx, rIdx]) => {
+                      const leftText = pairs[parseInt(lIdx)].left;
+                      const rightText = pairs[rIdx].right;
+                      return `${leftText.trim()}|||${rightText.trim()}`;
+                    }).sort();
+                    isCorrect = JSON.stringify(expectedSet) === JSON.stringify(userSet);
+                  }
                 } else {
                   isCorrect = userAns === q.correctAnswer;
                 }
@@ -214,7 +232,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {pairs.map((p, lIdx) => {
                           const userMatch = userMapping[lIdx];
-                          const isMatchCorrect = userMatch === lIdx;
+                          const isMatchCorrect = userMatch !== undefined && pairs.some(pRef => pRef.left.trim() === p.left.trim() && pRef.right.trim() === pairs[userMatch].right.trim());
                           return (
                             <div key={lIdx} className={cn("p-4 rounded-xl border flex flex-col gap-2 transition-colors", isMatchCorrect ? "bg-green-50/30 border-green-100" : "bg-red-50/30 border-red-100")}>
                                <div className="flex items-center justify-between">

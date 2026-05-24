@@ -104,7 +104,9 @@ const ExamOptions: React.FC<SharedProps> = (props) => {
             let isCorrect = false;
             let isWrong = false;
             if (examMode === "Hint" && isMatched) {
-              isCorrect = matchedRightIdx === lIdx;
+              const userLeftText = p.left.trim();
+              const userRightText = pairs[matchedRightIdx].right.trim();
+              isCorrect = pairs.some(pRef => pRef.left.trim() === userLeftText && pRef.right.trim() === userRightText);
               isWrong = !isCorrect;
             }
 

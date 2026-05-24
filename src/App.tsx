@@ -188,19 +188,19 @@ export default function App() {
       } else if (q.type === "matching") {
         const pairs = q.matchingPairs || [];
         const userMapping = userAns as Record<number, number>;
-        let allCorrect = Object.keys(userMapping).length === pairs.length;
-        if (allCorrect) {
-          for (let i = 0; i < pairs.length; i++) {
-            // We assume the initial matchingPairs order defines the correct mapping: left[i] matches right[i]
-            // However, the items might have been shuffled.
-            // Actually, we'll store the original indices in the matching interface if needed.
-            // For now, let's assume the components will handle presenting shuffles but return the original indices.
-            if (userMapping[i] !== i) {
-              allCorrect = false;
-              break;
-            }
+        
+        const userMatches = Object.entries(userMapping);
+        if (userMatches.length === pairs.length) {
+          const expectedSet = pairs.map(p => `${p.left.trim()}|||${p.right.trim()}`).sort();
+          const userSet = userMatches.map(([lIdx, rIdx]) => {
+            const leftText = pairs[parseInt(lIdx)].left;
+            const rightText = pairs[rIdx].right;
+            return `${leftText.trim()}|||${rightText.trim()}`;
+          }).sort();
+
+          if (JSON.stringify(expectedSet) === JSON.stringify(userSet)) {
+            correct++;
           }
-          if (allCorrect) correct++;
         }
       } else {
         if (userAns === q.correctAnswer) correct++;
